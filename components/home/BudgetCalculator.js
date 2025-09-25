@@ -43,7 +43,7 @@ export default function BudgetCalculator() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 ">
+        <div className="grid lg:grid-cols-2 gap-8">
           {/* Calculator Form */}
           <Card className="shadow-xl border-0">
             <CardHeader className="bg-gradient-to-r from-orange-500 to-yellow-500 text-white rounded-t-lg py-4">
