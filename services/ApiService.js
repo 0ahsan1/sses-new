@@ -1,5 +1,6 @@
 
 import axios from "axios";
+import {STRAPI_BASE_URL} from "@/constants";
 
 export const strapiBasePath = process.env.NEXT_PUBLIC_STRAPI_API_URL;
 export const strapiImagePath = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
@@ -26,7 +27,7 @@ export async function getFilteredStrapiContent(
 	sort = [],
 	getDraftEntries = false
 ) {
-	let url = `${strapiBasePath}${path}`,
+	let url = `${strapiBasePath}/${path}`,
 		response = null;
 	
 	filters.forEach((filter, index) => {
@@ -61,6 +62,10 @@ export async function getFilteredStrapiContent(
 		
 		return response.data
 	} catch (error) {
-		console.log('strapi error',error.data.error)
+		console.log('strapi error',url)
 	}
+}
+
+export const strapiImageLoader = ({src, width, quality }) => {
+	return `${STRAPI_BASE_URL}${src}?w=${width}&q=${quality || 75}`;
 }

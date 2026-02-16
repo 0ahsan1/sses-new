@@ -11,7 +11,6 @@ const iconMap = {
 };
 
 export default function WhyChooseUs({ home6 }) {
-  console.log('WhyChooseUs',home6);
   // Default features in case home6 data is not provided
   const defaultFeatures = [
     {
@@ -101,20 +100,6 @@ export default function WhyChooseUs({ home6 }) {
               </div>
             );
           })}
-        </div>
-
-        {/* Stats Section */}
-        <div className="mt-20 bg-gradient-to-r from-gray-900 to-blue-900 rounded-3xl p-12 text-white">
-          <div className="grid md:grid-cols-4 gap-8 text-center">
-            {stats.map((stat, index) => (
-              <div key={index}>
-                <div className={`text-4xl font-bold ${stat.color} mb-2`}>
-                  {stat.value}
-                </div>
-                <div className="text-gray-300">{stat.label}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </div>

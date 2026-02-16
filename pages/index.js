@@ -12,6 +12,9 @@ import axios from "axios";
 import {queryObjectBuilder} from "@/lib/utils";
 import qs from "qs";
 import {FAQ} from "@/components/FAQ";
+import HeroSectionV2 from "@/components/home/HeroSectionv2";
+import CTASection from "@/components/home/CTA";
+import StatsSection from "@/components/home/StatsSection";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,18 +27,21 @@ const geistMono = Geist_Mono({
 });
 
 export default function Home({data}) {
-    console.log('Home',data);
+    console.log('home data',data)
   return (
       <Layout>
         <HeroSection banner={data.banner} />
-        
+        <StatsSection />
         <WhyChooseUs home6={data.boardF} />
+          <CTASection data={data.ctaA} />
           {data?.service_section?.services && (
               <ServicesSection services={data.service_section.services} />
           )}
           <BudgetCalculator />
+          <CTASection data={data.ctaB} />
         <ProjectShowcase projects={data.project_section.projects} />
         {data?.faq && <FAQ data={data.faq} objKey="faq" />}
+          <CTASection data={data.ctaC} />
       </Layout>
   );
 }
@@ -59,8 +65,6 @@ export async function getServerSideProps() {
         // Strapi v4 shape: { data: [ { id, attributes: {...} } ], meta: {...} }
         const pageEntry = resp?.data?.[0] ?? null;
         
-        console.log("Strapi meta:", resp?.meta);
-        console.log("Found page id:", pageEntry?.id);
         
         return {
             props: {

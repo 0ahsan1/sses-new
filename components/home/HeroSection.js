@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Zap, Shield, Award } from "lucide-react";
 import Image from "next/image";
+import {STRAPI_BASE_URL} from "@/constants";
 
 export default function HeroSection({ banner }) {
   // Safely extract banner data with defaults
@@ -21,11 +22,11 @@ export default function HeroSection({ banner }) {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 py-12">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src={backgroundImage}
+          src={`${STRAPI_BASE_URL}${backgroundImage}`}
           alt={banner?.image?.alternativeText || "Solar panels installation"}
           fill
           className="object-cover opacity-20"
@@ -47,28 +48,28 @@ export default function HeroSection({ banner }) {
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-lg md:text-5xl font-bold text-white mb-6 leading-tight">
             {title}
           </h1>
 
           {/* Subheadline */}
           <div 
-            className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed prose prose-invert"
+            className="text-sm md:text-lg text-gray-300 mb-8 leading-relaxed prose prose-invert"
             dangerouslySetInnerHTML={createMarkup(description)}
           />
 
           {/* Stats */}
           <div className="flex flex-wrap justify-center gap-8 mb-12">
             <div className="text-center">
-              <div className="text-3xl font-bold text-white">2000+</div>
+              <div className="text-sm md:text-xl font-bold text-white">2000+</div>
               <div className="text-gray-400 text-sm">Happy Customers</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-white">50MW+</div>
+              <div className="text-sm md:text-xl font-bold text-white">50MW+</div>
               <div className="text-gray-400 text-sm">Installed Capacity</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-white">25 Years</div>
+              <div className="text-sm md:text-xl font-bold text-white">25 Years</div>
               <div className="text-gray-400 text-sm">Performance Warranty</div>
             </div>
           </div>
@@ -79,7 +80,7 @@ export default function HeroSection({ banner }) {
               <Button 
                 asChild
                 size="lg" 
-                className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 text-sm md:text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 <a href={button.link || '/contact'}>
                   {button.label || 'Get Free Solar Quote'}
@@ -87,14 +88,14 @@ export default function HeroSection({ banner }) {
                 </a>
               </Button>
             )}
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="border-2 border-white/20 text-white hover:bg-white/10 px-8 py-4 text-lg font-semibold rounded-xl backdrop-blur-sm"
-            >
-              <Play className="w-5 h-5 mr-2" />
-              Watch How It Works
-            </Button>
+            {/*<Button */}
+            {/*  variant="outline" */}
+            {/*  size="lg" */}
+            {/*  className="border-2 border-white/20 text-white hover:bg-white/10 px-8 py-4 text-lg font-semibold rounded-xl backdrop-blur-sm"*/}
+            {/*>*/}
+            {/*  <Play className="w-5 h-5 mr-2" />*/}
+            {/*  Watch How It Works*/}
+            {/*</Button>*/}
           </div>
 
           {/* Trust Indicators */}
@@ -116,11 +117,11 @@ export default function HeroSection({ banner }) {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-bounce" />
-        </div>
-      </div>
+      {/*<div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">*/}
+      {/*  <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">*/}
+      {/*    <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-bounce" />*/}
+      {/*  </div>*/}
+      {/*</div>*/}
     </div>
   );
 }

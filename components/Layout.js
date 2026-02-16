@@ -114,29 +114,74 @@ export default function Layout({ children, currentPageName }) {
       <main className="pt-16">
         {children}
       </main>
-
-      {/* Floating WhatsApp Button */}
-      <div className="fixed bottom-6 right-6 z-40">
-        <Button
-          size="lg"
-          className="rounded-full w-14 h-14 bg-green-500 hover:bg-green-600 shadow-lg hover:shadow-xl transition-all duration-300"
-        >
-          <MessageCircle className="w-6 h-6" />
-        </Button>
-      </div>
-
-      {/* Sticky CTA Bar */}
-      <div className="fixed bottom-0 left-0 right-0 bg-gradient-to-r from-orange-600 to-yellow-500 p-4 md:hidden z-30">
-        <div className="flex items-center justify-between">
-          <div>
-            <p className="text-white text-sm font-medium">Ready for Solar?</p>
-            <p className="text-orange-100 text-xs">Get free consultation today</p>
+      <footer className="bg-slate-950 border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+          <div className="grid md:grid-cols-4 gap-12">
+            <div className="md:col-span-2">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-amber-500 flex items-center justify-center">
+                  <Sun className="w-6 h-6 text-slate-900" />
+                </div>
+                <span className="text-xl font-bold text-white tracking-tight">SolarEdge</span>
+              </div>
+              <p className="text-slate-400 max-w-sm leading-relaxed">
+                Premium solar energy solutions for homes and businesses.
+                Powering a sustainable future, one rooftop at a time.
+              </p>
+            </div>
+            
+            <div>
+              <h4 className="text-white font-semibold mb-5 text-sm tracking-wider uppercase">Services</h4>
+              <ul className="space-y-3 text-slate-400 text-sm">
+                <li><Link href={createPageUrl("Services")} className="hover:text-amber-400 transition-colors">Residential Solar</Link></li>
+                <li><Link href={createPageUrl("Services")} className="hover:text-amber-400 transition-colors">Commercial Solar</Link></li>
+                <li><Link href={createPageUrl("Services")} className="hover:text-amber-400 transition-colors">Battery Storage</Link></li>
+                <li><Link href={createPageUrl("Services")} className="hover:text-amber-400 transition-colors">Maintenance</Link></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="text-white font-semibold mb-5 text-sm tracking-wider uppercase">Contact</h4>
+              <ul className="space-y-3 text-slate-400 text-sm">
+                <li>(555) 123-4567</li>
+                <li>info@solaredge.com</li>
+                <li>123 Solar Way<br />Austin, TX 78701</li>
+              </ul>
+            </div>
           </div>
-          <Button size="sm" className="bg-white text-orange-600 hover:bg-gray-100">
-            Get Quote
-          </Button>
+          
+          <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-slate-500 text-sm">© 2026 SolarEdge. All rights reserved.</p>
+            <div className="flex gap-6 text-slate-500 text-sm">
+              <span className="hover:text-slate-300 cursor-pointer transition-colors">Privacy</span>
+              <span className="hover:text-slate-300 cursor-pointer transition-colors">Terms</span>
+              <span className="hover:text-slate-300 cursor-pointer transition-colors">Sitemap</span>
+            </div>
+          </div>
         </div>
-      </div>
+      </footer>
+      {/* Floating WhatsApp Button */}
+      {/*<div className="fixed bottom-6 right-6 z-40">*/}
+      {/*  <Button*/}
+      {/*    size="lg"*/}
+      {/*    className="rounded-full w-14 h-14 bg-green-500 hover:bg-green-600 shadow-lg hover:shadow-xl transition-all duration-300"*/}
+      {/*  >*/}
+      {/*    <MessageCircle className="w-6 h-6" />*/}
+      {/*  </Button>*/}
+      {/*</div>*/}
+      
+      {/*/!* Sticky CTA Bar *!/*/}
+      {/*<div className="fixed bottom-0 left-0 right-0 bg-gradient-to-r from-orange-600 to-yellow-500 p-4 md:hidden z-30">*/}
+      {/*  <div className="flex items-center justify-between">*/}
+      {/*    <div>*/}
+      {/*      <p className="text-white text-sm font-medium">Ready for Solar?</p>*/}
+      {/*      <p className="text-orange-100 text-xs">Get free consultation today</p>*/}
+      {/*    </div>*/}
+      {/*    <Button size="sm" className="bg-white text-orange-600 hover:bg-gray-100">*/}
+      {/*      Get Quote*/}
+      {/*    </Button>*/}
+      {/*  </div>*/}
+      {/*</div>*/}
     </div>
   );
 }
