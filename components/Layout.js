@@ -5,6 +5,7 @@ import { createPageUrl } from "@/lib/urls";
 import { Sun, Menu, X, Phone, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+
 export default function Layout({ children, currentPageName }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const router = useRouter();
@@ -22,6 +23,54 @@ export default function Layout({ children, currentPageName }) {
 
   return (
     <div className="min-h-screen bg-white">
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { overflow-x: hidden; }
+
+        .gradient-text {
+          background: linear-gradient(135deg, #f97316 0%, #fbbf24 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+        .gradient-text-green {
+          background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+        .solar-gradient { background: linear-gradient(135deg, #f97316 0%, #fbbf24 100%); }
+        .hero-gradient { background: linear-gradient(135deg, #0f172a 0%, #1a2f5a 50%, #0f172a 100%); }
+        .impact-gradient { background: linear-gradient(135deg, #064e3b 0%, #065f46 50%, #064e3b 100%); }
+        .cta-gradient { background: linear-gradient(135deg, #f97316 0%, #f59e0b 100%); }
+
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-14px); }
+        }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+
+        @keyframes pulse-slow {
+          0%, 100% { opacity: 0.35; transform: scale(1); }
+          50% { opacity: 0.7; transform: scale(1.08); }
+        }
+        .animate-pulse-slow { animation: pulse-slow 4s ease-in-out infinite; }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #f97316; border-radius: 3px; }
+
+        .card-hover {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+        }
+      `}</style>
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6">

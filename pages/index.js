@@ -15,6 +15,10 @@ import {FAQ} from "@/components/FAQ";
 import HeroSectionV2 from "@/components/home/HeroSectionv2";
 import CTASection from "@/components/home/CTA";
 import StatsSection from "@/components/home/StatsSection";
+import HeroSectionV3 from "@/components/home/HeroSectionV3";
+import AboutStats from "@/components/stats/about";
+import WhyChooseUsVariant from "@/components/WhyChoose";
+import ServiceSlider from "@/components/Slider/ServiceSlider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,15 +32,21 @@ const geistMono = Geist_Mono({
 
 export default function Home({data}) {
     console.log('home data',data)
-  return (
+    console.log('WhyChooseUsVariant data home',data.boardF)
+    
+    return (
       <Layout>
-        <HeroSection banner={data.banner} />
-        <StatsSection />
-        <WhyChooseUs home6={data.boardF} />
+        <HeroSectionV3 banner={data.banner} />
+        {/*<StatsSection />*/}
+          <AboutStats />
+        {/*<WhyChooseUs home6={data.boardF} />*/}
+          <WhyChooseUsVariant data={data.boardF} />
+          
           <CTASection data={data.ctaA} />
           {data?.service_section?.services && (
               <ServicesSection services={data.service_section.services} />
           )}
+          <ServiceSlider data={data.service_section} />
           <BudgetCalculator />
           <CTASection data={data.ctaB} />
         <ProjectShowcase projects={data.project_section.projects} />
