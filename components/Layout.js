@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { createPageUrl } from "@/lib/urls";
 import { Sun, Menu, X, Phone, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 
 export default function Layout({ children, currentPageName }) {
@@ -15,7 +16,8 @@ export default function Layout({ children, currentPageName }) {
     { name: "Services", url: createPageUrl("services") },
     { name: "Projects", url: createPageUrl("projects") },
     { name: "Blog", url: createPageUrl("blog") },
-    { name: "FAQ", url: createPageUrl("fAQ") },
+    { name: "Faq", url: createPageUrl("faq") },
+    { name: "About", url: createPageUrl("about") },
     { name: "Contact", url: createPageUrl("contact") },
   ];
 
@@ -77,12 +79,9 @@ export default function Layout({ children, currentPageName }) {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link href={createPageUrl("home")} className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-lg flex items-center justify-center">
-                <Sun className="w-5 h-5 text-white" />
+              <div className="flex items-center justify-center">
+                <Image className="w-32 h-12" src={'/logo2.png'} alt={'sses logo'} width={100} height={100} />
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
-                SSES
-              </span>
             </Link>
 
             {/* Desktop Navigation */}
