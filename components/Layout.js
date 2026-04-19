@@ -78,7 +78,7 @@ export default function Layout({ children, currentPageName }) {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link href={createPageUrl("home")} className="flex items-center space-x-2">
+            <Link href={createPageUrl("")} className="flex items-center space-x-2">
               <div className="flex items-center justify-center">
                 <Image className="w-32 h-12" src={'/logo2.png'} alt={'sses logo'} width={100} height={100} />
               </div>

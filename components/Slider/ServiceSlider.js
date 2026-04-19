@@ -112,7 +112,7 @@ export default function ServiceSlider({data}) {
 											</div>
 											<div className="mt-auto text-center">
 												<Button asChild variant="link" className="p-0 h-auto text-orange-600 hover:text-orange-700 group">
-													<Link href={`/services/${item.slug}`}>
+													<Link href={`/service-details/${item.slug}`}>
 														Learn more
 														<ArrowUpRight className=" w-4 h-4" />
 													</Link>
