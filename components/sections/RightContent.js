@@ -19,23 +19,12 @@ const stats = [
 
 export default function RightContent({data}) {
 	return (
-		<section className="bg-white py-10 ">
-			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		<section className="bg-white px-6 py-10 ">
+			<div className="max-w-7xl mx-auto">
 				{/* Content Grid */}
 				<div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
-					{/* Image */}
-					<motion.div
-						initial={{ opacity: 0, x: -30 }}
-						whileInView={{ opacity: 1, x: 0 }}
-						viewport={{ once: true }}
-						transition={{ duration: 0.6 }}
-						className="relative"
-					>
-						<div className="rounded-2xl overflow-hidden bg-[#fc6e0b]/5 p-6">
-							<Image src={data?.image ? data?.image[0].url : '#'} className={'w-full'} width={500} height={100} loader={strapiImageLoader} />
-						</div>
-					</motion.div>
-					<div>
+					{/* Title Section - Order 1 on mobile, Order 2 on desktop */}
+					<div className="order-1 lg:order-2">
 						<motion.h2
 							initial={{ opacity: 0, y: 20 }}
 							whileInView={{ opacity: 1, y: 0 }}
@@ -45,7 +34,7 @@ export default function RightContent({data}) {
 						>
 							{data?.title}
 						</motion.h2>
-						<div className={'max-w-xl'} dangerouslySetInnerHTML={{__html:data.description}}>
+						<div className={'max-w-xl mb-8'} dangerouslySetInnerHTML={{__html:data.description}}>
 						
 						</div>
 						{/* Features */}
@@ -79,8 +68,21 @@ export default function RightContent({data}) {
 							))}
 						</motion.div>
 					</div>
+					
+					{/* Image Section - Order 2 on mobile, Order 1 on desktop */}
+					<motion.div
+						initial={{ opacity: 0, x: -30 }}
+						whileInView={{ opacity: 1, x: 0 }}
+						viewport={{ once: true }}
+						transition={{ duration: 0.6 }}
+						className="relative order-2 lg:order-1"
+					>
+						<div className="rounded-2xl overflow-hidden bg-[#fc6e0b]/5 p-6">
+							<Image src={data?.image ? data?.image[0].url : '#'} className={'w-full'} width={500} height={100} loader={strapiImageLoader} />
+						</div>
+					</motion.div>
 				</div>
-				
+			
 			</div>
 		</section>
 	);

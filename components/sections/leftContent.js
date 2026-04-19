@@ -26,7 +26,8 @@ export default function LeftContent({data}) {
 	return (
 		<section className="py-10 px-6 bg-white">
 			<div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-				<div>
+				{/* Title and Description Section - Order 1 on mobile, Order 1 on desktop */}
+				<div className="order-1 lg:order-1">
 					<motion.p
 						initial={{ opacity: 0, y: 10 }}
 						whileInView={{ opacity: 1, y: 0 }}
@@ -45,7 +46,7 @@ export default function LeftContent({data}) {
 					>
 						{data?.title}
 					</motion.h2>
-					<div className={'max-w-xl'} dangerouslySetInnerHTML={{__html:data.description}}>
+					<div className={'max-w-xl mb-8'} dangerouslySetInnerHTML={{__html:data.description}}>
 					
 					</div>
 					<div className="space-y-8">
@@ -62,7 +63,7 @@ export default function LeftContent({data}) {
 									className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
 									style={{ backgroundColor: "#fc6e0b15" }}
 								>
-									<Image src={step?.image.url} width={40} height={40} loader={strapiImageLoader} />
+									<Image src={step?.image?.url ?? '#'} width={40} height={40} loader={strapiImageLoader} />
 								</div>
 								<div>
 									<h3 className="font-bold text-gray-900 text-lg mb-1">{step.title}</h3>
@@ -73,7 +74,8 @@ export default function LeftContent({data}) {
 					</div>
 				</div>
 				
-				<div className="relative">
+				{/* Image Section - Order 2 on mobile, Order 2 on desktop */}
+				<div className="relative order-2 lg:order-2">
 					<motion.div
 						initial={{ opacity: 0, scale: 0.95 }}
 						whileInView={{ opacity: 1, scale: 1 }}

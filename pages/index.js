@@ -19,6 +19,7 @@ import HeroSectionV3 from "@/components/home/HeroSectionV3";
 import AboutStats from "@/components/stats/about";
 import WhyChooseUsVariant from "@/components/WhyChoose";
 import ServiceSlider from "@/components/Slider/ServiceSlider";
+import {SolarCalculator} from "@/components/Solar/Calculator";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,13 +42,10 @@ export default function Home({data}) {
           <AboutStats />
         {/*<WhyChooseUs home6={data.boardF} />*/}
           <WhyChooseUsVariant data={data.boardF} />
-          
           <CTASection data={data.ctaA} />
-          {data?.service_section?.services && (
-              <ServicesSection services={data.service_section.services} />
-          )}
           <ServiceSlider data={data.service_section} />
-          <BudgetCalculator />
+          {/*<BudgetCalculator />*/}
+          <SolarCalculator />
           <CTASection data={data.ctaB} />
         <ProjectShowcase projects={data.project_section.projects} />
         {data?.faq && <FAQ data={data.faq} objKey="faq" />}

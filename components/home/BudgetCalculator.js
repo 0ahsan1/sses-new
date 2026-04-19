@@ -16,12 +16,12 @@ export default function BudgetCalculator() {
 
   const calculateSolar = () => {
     const monthlyBill = parseFloat(formData.monthlyBill) || 0;
-    const systemSize = Math.ceil(monthlyBill * 0.15); // Rough estimation
+    const systemSize = Math.ceil(monthlyBill / 6042); // Based on 6,042 PKR monthly savings per kW
     const totalCost = systemSize * 120000; // PKR per kW
-    const monthlySavings = monthlyBill * 0.8;
-    const paybackPeriod = Math.ceil(totalCost / (monthlySavings * 12));
     const co2Savings = systemSize * 1.2; // tons per year
-
+    const monthlySavings = systemSize * 6042; // 72,500 PKR yearly savings ÷ 12 months
+    const paybackPeriod = Math.ceil(totalCost / (monthlySavings * 12));
+    const yearlyUnitsSaved = systemSize * 1450; // 1,450 units per kW per year
     setResults({
       systemSize,
       totalCost,
@@ -182,7 +182,7 @@ export default function BudgetCalculator() {
                     </div>
                     <div className="text-center">
                       <div className="text-3xl font-bold text-green-600 mb-2">
-                        {results.co2Savings} tons/year
+                        {results.co2Savings?.toFixed(2)} tons/year
                       </div>
                       <div className="text-gray-600">CO₂ Emissions Saved</div>
                     </div>

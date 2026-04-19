@@ -65,24 +65,7 @@ export default function WhyChooseUsVariant({data}) {
 	return (
 		<section className="relative w-full overflow-hidden py-20 px-6 lg:px-16" style={{ backgroundColor: "#fef9f5" }}>
 			{/* Decorative sparkles */}
-			{[
-				{ top: "8%", left: "5%" },
-				{ top: "12%", right: "8%" },
-				{ bottom: "15%", left: "10%" },
-				{ bottom: "10%", right: "5%" },
-			].map((pos, i) => (
-				<motion.div
-					key={i}
-					className="absolute text-orange-200 pointer-events-none"
-					style={pos}
-					animate={{ rotate: [0, 90, 180, 270, 360], scale: [1, 1.2, 1] }}
-					transition={{ duration: 8, repeat: Infinity, delay: i * 1.5 }}
-				>
-					<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-						<path d="M12 0L14.59 8.41L23 12L14.59 15.59L12 24L9.41 15.59L1 12L9.41 8.41Z" />
-					</svg>
-				</motion.div>
-			))}
+		
 			
 			<div className="relative max-w-7xl mx-auto">
 				{/* Header */}

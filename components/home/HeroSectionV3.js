@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ArrowRight, Star, Shield, Award, ChevronDown } from "lucide-react";
+import Image from "next/image";
+import {strapiImageLoader} from "@/services/ApiService";
 
 const stats = [
 	{ value: "12,000+", label: "Installations" },
@@ -63,7 +65,7 @@ export default function HeroSectionV3({banner}) {
 								<ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
 							</button>
 							<button
-								onClick={() => handleNav("#calculator")}
+								onClick={() => handleNav("#solarCalculator")}
 								className="group px-7 py-4 rounded-2xl border border-white/20 text-white font-bold text-lg hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-3 backdrop-blur-sm"
 							>
 								Calculate Savings
@@ -95,8 +97,11 @@ export default function HeroSectionV3({banner}) {
 						<div className="relative animate-float">
 							{/* Main circle with solar house illustration */}
 							<div className="w-[420px] h-[420px] rounded-full bg-gradient-to-br from-slate-800/80 to-slate-900/80 border border-white/10 backdrop-blur-xl flex items-center justify-center overflow-hidden shadow-2xl">
-								<img
-									src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=500&q=80"
+								<Image
+									src={banner?.image?.url ?? '#'}
+									loader={strapiImageLoader}
+									width={200}
+									height={200}
 									alt="Solar panels on rooftop"
 									className="w-full h-full object-cover opacity-60"
 								/>

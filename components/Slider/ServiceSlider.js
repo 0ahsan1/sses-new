@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import {ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight} from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import {strapiImageLoader} from "@/services/ApiService";
+import {Button} from "@/components/ui/button";
+import Link from "next/link";
 
 
 export default function ServiceSlider({data}) {
@@ -49,7 +51,7 @@ export default function ServiceSlider({data}) {
 			<div className="max-w-7xl mx-auto">
 				<div className="flex flex-col lg:flex-row gap-10 items-start">
 					{/* Left text */}
-					<div className="lg:w-[220px] flex-shrink-0 pt-2">
+					<div className="lg:w-[400px] flex-shrink-0 pt-2">
 						<h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight tracking-tight">
 							{data?.title}
 						</h2>
@@ -105,8 +107,16 @@ export default function ServiceSlider({data}) {
 									<div className="mt-4 flex items-center justify-between bg-slate-50 rounded-xl px-5 py-4 group-hover:bg-indigo-50 transition-colors duration-300">
 										<div>
 											<p className="text-sm font-semibold text-gray-800">{item.title}</p>
-											<div className="text-gray-500 font-bold text-xs mt-0.5">
+											<div className="text-gray-500 font-bold text-xs mt-0.5 line-clamp-3 min-h-[50px]">
 												{item?.description[0].children[0].text}
+											</div>
+											<div className="mt-auto text-center">
+												<Button asChild variant="link" className="p-0 h-auto text-orange-600 hover:text-orange-700 group">
+													<Link href={`/services/${item.slug}`}>
+														Learn more
+														<ArrowUpRight className=" w-4 h-4" />
+													</Link>
+												</Button>
 											</div>
 										</div>
 									</div>

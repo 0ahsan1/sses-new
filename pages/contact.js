@@ -96,8 +96,8 @@ export default function Contact() {
                 {/* Contact Form */}
                 <div className="lg:col-span-2">
                   <Card className="shadow-xl border-0">
-                    <CardHeader className="bg-gradient-to-r from-orange-500 to-yellow-500 text-white">
-                      <CardTitle className="text-2xl flex items-center">
+                    <CardHeader className="bg-gradient-to-r from-orange-500 to-yellow-500 text-white  rounded-3xl">
+                      <CardTitle className="text-2xl flex items-center p-4">
                         <Send className="w-6 h-6 mr-3" />
                         Request Free Solar Consultation
                       </CardTitle>

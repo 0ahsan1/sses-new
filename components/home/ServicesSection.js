@@ -11,7 +11,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-export default function ServicesSection({ services = [] }) {
+export default function ServicesSection({ data, services = [] }) {
   if (!services || services.length === 0) return null;
 
   const getServiceIcon = (title) => {
@@ -24,14 +24,16 @@ export default function ServicesSection({ services = [] }) {
   return (
     <section className="py-20 bg-gradient-to-b from-slate-50 to-white">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center sm:text-left max-w-3xl mb-16 mx-4">
           <h2 className="text-4xl font-bold text-slate-900 mb-4">
-            Our Solar Installation Services
+            {data?.title}
           </h2>
-          <p className="text-lg text-slate-600">
-            We provide end-to-end solar energy solutions designed for homes, businesses, and industries.
-            Every project is executed by certified professionals using premium-quality materials.
-          </p>
+          {data?.description && (
+              <p className="text-lg text-slate-600" dangerouslySetInnerHTML={{
+                __html: data?.description
+              }}>
+              </p>
+          )}
         </div>
 
         {/* Desktop Grid (hidden on mobile) */}
@@ -91,7 +93,7 @@ function ServiceCard({ service, getServiceIcon, className = '' }) {
         <div className="p-3 bg-slate-50 rounded-lg w-fit mb-4 group-hover:bg-orange-50 transition-colors">
           {getServiceIcon(service.title)}
         </div>
-        <CardTitle className="text-xl font-semibold text-slate-900 line-clamp-2 h-14">
+        <CardTitle className="text-xl font-semibold text-slate-900 ">
           {service.title}
         </CardTitle>
       </CardHeader>
