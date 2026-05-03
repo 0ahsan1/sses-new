@@ -58,44 +58,44 @@ export default function BlogDetail({ blog }) {
 						{/* Main Content */}
 						<div className="lg:col-span-2 space-y-8">
 							{/* Blog Metadata */}
-							<Card>
-								<CardHeader>
-									<div className="flex flex-wrap items-center gap-4 text-sm text-gray-600">
-										{blogData.author && (
-											<div className="flex items-center space-x-2">
-												<User className="h-4 w-4" />
-												<span>{blogData.author}</span>
-											</div>
-										)}
-										{blogData.date && (
-											<div className="flex items-center space-x-2">
-												<Calendar className="h-4 w-4" />
-												<span>{new Date(blogData.date).toLocaleDateString('en-US', { 
-													year: 'numeric', 
-													month: 'long', 
-													day: 'numeric' 
-												})}</span>
-											</div>
-										)}
-										{blogData.readTime && (
-											<div className="flex items-center space-x-2">
-												<Clock className="h-4 w-4" />
-												<span>{blogData.readTime}</span>
-											</div>
-										)}
-									</div>
-								</CardHeader>
-								<CardContent>
-									<div className="flex flex-wrap gap-2 mb-4">
-										{blogData.category && (
-											<Badge variant="outline">{blogData.category}</Badge>
-										)}
-										{blogData.tags && blogData.tags.map((tag, index) => (
-											<Badge key={index} variant="secondary">{tag}</Badge>
-										))}
-									</div>
-								</CardContent>
-							</Card>
+							{/*<Card>*/}
+							{/*	<CardHeader>*/}
+							{/*		<div className="flex flex-wrap items-center gap-4 text-sm text-gray-600">*/}
+							{/*			{blogData.author && (*/}
+							{/*				<div className="flex items-center space-x-2">*/}
+							{/*					<User className="h-4 w-4" />*/}
+							{/*					<span>{blogData.author}</span>*/}
+							{/*				</div>*/}
+							{/*			)}*/}
+							{/*			{blogData.date && (*/}
+							{/*				<div className="flex items-center space-x-2">*/}
+							{/*					<Calendar className="h-4 w-4" />*/}
+							{/*					<span>{new Date(blogData.date).toLocaleDateString('en-US', { */}
+							{/*						year: 'numeric', */}
+							{/*						month: 'long', */}
+							{/*						day: 'numeric' */}
+							{/*					})}</span>*/}
+							{/*				</div>*/}
+							{/*			)}*/}
+							{/*			{blogData.readTime && (*/}
+							{/*				<div className="flex items-center space-x-2">*/}
+							{/*					<Clock className="h-4 w-4" />*/}
+							{/*					<span>{blogData.readTime}</span>*/}
+							{/*				</div>*/}
+							{/*			)}*/}
+							{/*		</div>*/}
+							{/*	</CardHeader>*/}
+							{/*	<CardContent>*/}
+							{/*		<div className="flex flex-wrap gap-2 mb-4">*/}
+							{/*			{blogData.category && (*/}
+							{/*				<Badge variant="outline">{blogData.category}</Badge>*/}
+							{/*			)}*/}
+							{/*			{blogData.tags && blogData.tags.map((tag, index) => (*/}
+							{/*				<Badge key={index} variant="secondary">{tag}</Badge>*/}
+							{/*			))}*/}
+							{/*		</div>*/}
+							{/*	</CardContent>*/}
+							{/*</Card>*/}
 
 							{/* Blog Content */}
 							<Card>
