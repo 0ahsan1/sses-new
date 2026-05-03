@@ -103,13 +103,13 @@ export default function Layout({ children, currentPageName }) {
 
             {/* Desktop CTA */}
             <div className="hidden md:flex items-center space-x-4">
-              <Button variant="outline" size="sm" className="border-orange-200 text-orange-600 hover:bg-orange-50">
-                <Phone className="w-4 h-4 mr-2" />
-                Call Now
-              </Button>
-              <Button size="sm" className="bg-orange-600 hover:bg-orange-700">
+                <a href="tel:+923018207730" className={'flex items-center border border-2 p-2 rounded-2xl text-sm'}>
+                  <Phone className="w-4 h-4 mr-2" />
+                   <span>Call Us</span>
+                </a>
+              <Link href={createPageUrl("/contact")} className="text-white bg-orange-600 hover:bg-orange-700 p-2 rounded-2xl text-sm">
                 Free Quote
-              </Button>
+              </Link>
             </div>
 
             {/* Mobile menu button */}
@@ -145,10 +145,10 @@ export default function Layout({ children, currentPageName }) {
                 </Link>
               ))}
               <div className="flex flex-col space-y-2 pt-4 border-t border-gray-100">
-                <Button variant="outline" size="sm" className="border-orange-200 text-orange-600">
+                <a href="tel:+923018207730" className={'flex items-center border border-2 px-2 py-1 rounded-2xl'}>
                   <Phone className="w-4 h-4 mr-2" />
-                  Call Now
-                </Button>
+                  <span>Call Us</span>
+                </a>
                 <Button size="sm" className="bg-orange-600 hover:bg-orange-700">
                   Free Quote
                 </Button>
@@ -167,10 +167,9 @@ export default function Layout({ children, currentPageName }) {
           <div className="grid md:grid-cols-4 gap-12">
             <div className="md:col-span-2">
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-amber-500 flex items-center justify-center">
-                  <Sun className="w-6 h-6 text-slate-900" />
+              <div>
+                  <Image unoptimized={true} className={'w-30 h-10'} src={'/footer-logo.png'} alt={'sses logo'} width={20} height={20} />
                 </div>
-                <span className="text-xl font-bold text-white tracking-tight">SolarEdge</span>
               </div>
               <p className="text-slate-400 max-w-sm leading-relaxed">
                 Premium solar energy solutions for homes and businesses.
@@ -191,15 +190,16 @@ export default function Layout({ children, currentPageName }) {
             <div>
               <h4 className="text-white font-semibold mb-5 text-sm tracking-wider uppercase">Contact</h4>
               <ul className="space-y-3 text-slate-400 text-sm">
-                <li>(555) 123-4567</li>
-                <li>info@solaredge.com</li>
-                <li>123 Solar Way<br />Austin, TX 78701</li>
+                <li><a href="tel:+923018207730" className="hover:text-amber-400 transition-colors">(+92) 301-820-7730</a></li>
+                <li><a href="mailto:info.sustainablesolar@gmail.com" className="hover:text-amber-400 transition-colors">info.sustainablesolar@gmail.com</a></li>
+                <li>Office # 813-B Anum Estate Building, <br/> Shahra-e-Faisal Karachi, Pakistan
+                </li>
               </ul>
             </div>
           </div>
           
           <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-slate-500 text-sm">© 2026 SolarEdge. All rights reserved.</p>
+            <p className="text-slate-500 text-sm">© 2026 Sustainable Solar Energy Solutions. All rights reserved.</p>
             <div className="flex gap-6 text-slate-500 text-sm">
               <span className="hover:text-slate-300 cursor-pointer transition-colors">Privacy</span>
               <span className="hover:text-slate-300 cursor-pointer transition-colors">Terms</span>
