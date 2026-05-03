@@ -1,91 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, User, ArrowRight } from "lucide-react";
 import Layout from "@/components/Layout";
+import {strapiBasePath, strapiConfig, strapiImageLoader} from "@/services/ApiService";
+import Image from 'next/image';
+import Link from 'next/link';
+import axios from "axios";
 
-export default function Blog() {
-  const featuredPost = {
-    id: 1,
-    title: "Pakistan's Solar Revolution: Government Incentives and Net Metering Policy 2024",
-    excerpt: "Complete guide to Pakistan's new net metering policies, tax benefits, and government incentives for solar installations.",
-    image: "https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=800",
-    category: "Policy Updates",
-    author: "Solar Expert Team",
-    date: "December 15, 2024",
-    readTime: "8 min read",
-    featured: true
+export default function Blog({ blogs }) {
+  // Use the same data structure pattern that works in project details
+  const blogsData = blogs?.data?.data || blogs?.data || blogs || [];
+  
+  // State for pagination
+  const [visiblePosts, setVisiblePosts] = useState(6);
+  const [loading, setLoading] = useState(false);
+  
+  // Get featured post (first post or marked as featured)
+  const featuredPost = blogsData.find(blog => blog.featured) || blogsData[0];
+  
+  // Get other posts (exclude featured post)
+  const allOtherPosts = blogsData.filter(blog => blog !== featuredPost);
+  const otherPosts = allOtherPosts.slice(0, visiblePosts);
+  
+  // Load more function
+  const loadMore = () => {
+    setLoading(true);
+    // Simulate loading delay for better UX
+    setTimeout(() => {
+      setVisiblePosts(prev => prev + 6);
+      setLoading(false);
+    }, 500);
   };
-
-  const blogPosts = [
-    {
-      id: 2,
-      title: "Solar Panel Efficiency in Pakistan's Climate: Complete Analysis",
-      excerpt: "How different solar panel technologies perform in Pakistan's hot and humid climate conditions.",
-      image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400",
-      category: "Technology",
-      author: "Dr. Ahmad Hassan",
-      date: "December 10, 2024",
-      readTime: "5 min read"
-    },
-    {
-      id: 3,
-      title: "ROI Calculator: Solar Investment Returns in Major Pakistani Cities",
-      excerpt: "Detailed cost-benefit analysis of solar installations in Karachi, Lahore, Islamabad, and other cities.",
-      image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=400",
-      category: "Cost Analysis",
-      author: "Finance Team",
-      date: "December 8, 2024", 
-      readTime: "6 min read"
-    },
-    {
-      id: 4,
-      title: "Industrial Solar Solutions: Case Study from Karachi Textile Sector",
-      excerpt: "How textile manufacturers in Karachi are reducing operational costs by 70% with solar energy.",
-      image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400",
-      category: "Case Studies",
-      author: "Industrial Team",
-      date: "December 5, 2024",
-      readTime: "10 min read"
-    },
-    {
-      id: 5,
-      title: "Residential Solar Maintenance: Karachi Weather Challenges",
-      excerpt: "Essential maintenance tips for solar panels in coastal areas prone to dust and humidity.",
-      image: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=400",
-      category: "Maintenance",
-      author: "Technical Team",
-      date: "December 3, 2024",
-      readTime: "4 min read"
-    },
-    {
-      id: 6,
-      title: "Agricultural Solar Pumping: Success Stories from Sindh Province",
-      excerpt: "How farmers are revolutionizing irrigation with solar-powered water pumping systems.",
-      image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=400",
-      category: "Agriculture",
-      author: "Agri Solar Team", 
-      date: "November 30, 2024",
-      readTime: "7 min read"
-    },
-    {
-      id: 7,
-      title: "Battery Storage vs Grid-Tie: Which System is Right for You?",
-      excerpt: "Comprehensive comparison of different solar system types for Pakistani households.",
-      image: "https://images.unsplash.com/photo-1558618666-fbd19c4cd1ce?w=400",
-      category: "Technology",
-      author: "System Design Team",
-      date: "November 28, 2024",
-      readTime: "8 min read"
-    }
-  ];
-
-  const categories = [
-    "All Posts", "Policy Updates", "Technology", "Cost Analysis", 
-    "Case Studies", "Maintenance", "Agriculture", "Installation Tips"
-  ];
-
+  
+  // Check if there are more posts to load
+  const hasMorePosts = visiblePosts < allOtherPosts.length;
+  
+  // Extract unique categories from blog data
+  const categories = ["All Posts", ...new Set(blogsData.map(blog => blog.category).filter(Boolean))];
+  
   const getCategoryColor = (category) => {
     const colors = {
       "Policy Updates": "bg-blue-100 text-blue-800",
@@ -97,10 +51,11 @@ export default function Blog() {
     };
     return colors[category] || "bg-gray-100 text-gray-800";
   };
-
+  
   return (
       <Layout>
         <div className="min-h-screen bg-gray-50">
+          
           {/* Hero Section */}
           <div className="bg-gradient-to-br from-slate-900 to-blue-900 py-20">
             <div className="max-w-4xl mx-auto px-6 text-center">
@@ -136,11 +91,17 @@ export default function Blog() {
               <Card className="mb-16 overflow-hidden shadow-xl border-0">
                 <div className="grid lg:grid-cols-2 gap-0">
                   <div className="aspect-[4/3] lg:aspect-auto relative">
-                    <img
-                        src={featuredPost.image}
-                        alt={featuredPost.title}
-                        className="w-full h-full object-cover"
-                    />
+                    {featuredPost?.image?.url ? (
+                        <Image
+                            src={featuredPost.image.url}
+                            alt={featuredPost.title}
+                            fill
+                            className="w-full h-full object-cover"
+                            loader={strapiImageLoader}
+                        />
+                    ) : (
+                        <div className="w-full h-full bg-gradient-to-br from-orange-400 to-amber-500" />
+                    )}
                     <div className="absolute top-6 left-6">
                       <Badge className="bg-orange-600 text-white text-sm px-3 py-1">
                         Featured Article
@@ -149,37 +110,58 @@ export default function Blog() {
                   </div>
                   
                   <CardContent className="p-8 lg:p-12 flex flex-col justify-center">
-                    <Badge className={`w-fit mb-4 ${getCategoryColor(featuredPost.category)}`}>
-                      {featuredPost.category}
-                    </Badge>
+                    {featuredPost?.category && (
+                      <Badge className={`w-fit mb-4 ${getCategoryColor(featuredPost.category)}`}>
+                        {featuredPost.category}
+                      </Badge>
+                    )}
                     
                     <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-tight">
-                      {featuredPost.title}
+                      {featuredPost?.title || 'Latest Solar Insights'}
                     </h2>
                     
                     <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-                      {featuredPost.excerpt}
+                      {featuredPost?.description?.[0]?.children?.[0]?.text || featuredPost?.excerpt || 'Discover the latest insights and updates from the solar energy industry.'}
                     </p>
                     
                     <div className="flex items-center text-gray-500 mb-6 space-x-4">
-                      <div className="flex items-center">
-                        <User className="w-4 h-4 mr-2" />
-                        <span className="text-sm">{featuredPost.author}</span>
-                      </div>
-                      <div className="flex items-center">
-                        <Calendar className="w-4 h-4 mr-2" />
-                        <span className="text-sm">{featuredPost.date}</span>
-                      </div>
-                      <div className="flex items-center">
-                        <Clock className="w-4 h-4 mr-2" />
-                        <span className="text-sm">{featuredPost.readTime}</span>
-                      </div>
+                      {featuredPost?.author && (
+                          <div className="flex items-center">
+                            <User className="w-4 h-4 mr-2" />
+                            <span className="text-sm">{featuredPost.author}</span>
+                          </div>
+                      )}
+                      {featuredPost?.date && (
+                          <div className="flex items-center">
+                            <Calendar className="w-4 h-4 mr-2" />
+                            <span className="text-sm">{new Date(featuredPost.date).toLocaleDateString('en-US', {
+                              year: 'numeric',
+                              month: 'long',
+                              day: 'numeric'
+                            })}</span>
+                          </div>
+                      )}
+                      {featuredPost?.readTime && (
+                          <div className="flex items-center">
+                            <Clock className="w-4 h-4 mr-2" />
+                            <span className="text-sm">{featuredPost.readTime}</span>
+                          </div>
+                      )}
                     </div>
                     
-                    <Button className="bg-orange-600 hover:bg-orange-700 w-fit">
-                      Read Full Article
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </Button>
+                    {featuredPost?.slug ? (
+                        <Link href={`/blog/${featuredPost.slug}`}>
+                          <Button className="bg-orange-600 hover:bg-orange-700 w-fit">
+                            Read Full Article
+                            <ArrowRight className="w-4 h-4 ml-2" />
+                          </Button>
+                        </Link>
+                    ) : (
+                        <Button className="bg-orange-600 hover:bg-orange-700 w-fit" disabled>
+                          Read Full Article
+                          <ArrowRight className="w-4 h-4 ml-2" />
+                        </Button>
+                    )}
                   </CardContent>
                 </div>
               </Card>
@@ -191,48 +173,82 @@ export default function Blog() {
                 </h2>
                 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {blogPosts.map((post) => (
-                      <Card key={post.id} className="overflow-hidden hover:shadow-xl transition-shadow duration-300 border-0 shadow-lg">
+                  {otherPosts.map((post, index) => (
+                      <Card key={post?.id || index} className="overflow-hidden hover:shadow-xl transition-shadow duration-300 border-0 shadow-lg">
                         <div className="aspect-[4/3] relative overflow-hidden">
-                          <img
-                              src={post.image}
-                              alt={post.title}
-                              className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                          />
+                          {post?.image?.url ? (
+                              <Image
+                                  src={post.image.url}
+                                  alt={post.title}
+                                  fill
+                                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                                  loader={strapiImageLoader}
+                              />
+                          ) : (
+                              <div className="w-full h-full bg-gradient-to-br from-blue-400 to-amber-500" />
+                          )}
                         </div>
                         
                         <CardContent className="p-6">
-                          <Badge className={`mb-3 ${getCategoryColor(post.category)}`}>
-                            {post.category}
-                          </Badge>
+                          {post?.category && (
+                              <Badge className={`mb-3 ${getCategoryColor(post.category)}`}>
+                                {post.category}
+                              </Badge>
+                          )}
                           
-                          <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight hover:text-orange-600 transition-colors cursor-pointer">
-                            {post.title}
-                          </h3>
+                          {post?.slug ? (
+                              <Link href={`/blog/${post.slug}`}>
+                                <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight hover:text-orange-600 transition-colors cursor-pointer">
+                                  {post.title}
+                                </h3>
+                              </Link>
+                          ) : (
+                              <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight">
+                                {post.title}
+                              </h3>
+                          )}
                           
                           <p className="text-gray-600 mb-4 line-clamp-3">
-                            {post.excerpt}
+                            {post?.description?.[0]?.children?.[0]?.text || post?.excerpt || 'Read more about this topic...'}
                           </p>
                           
                           <div className="flex items-center justify-between text-gray-500 text-sm mb-4">
-                            <div className="flex items-center">
-                              <User className="w-4 h-4 mr-1" />
-                              <span>{post.author}</span>
-                            </div>
-                            <div className="flex items-center">
-                              <Clock className="w-4 h-4 mr-1" />
-                              <span>{post.readTime}</span>
-                            </div>
+                            {post?.author && (
+                                <div className="flex items-center">
+                                  <User className="w-4 h-4 mr-1" />
+                                  <span>{post.author}</span>
+                                </div>
+                            )}
+                            {post?.readTime && (
+                                <div className="flex items-center">
+                                  <Clock className="w-4 h-4 mr-1" />
+                                  <span>{post.readTime}</span>
+                                </div>
+                            )}
                           </div>
                           
                           <div className="flex items-center justify-between">
-                            <div className="flex items-center text-gray-500 text-sm">
-                              <Calendar className="w-4 h-4 mr-1" />
-                              <span>{post.date}</span>
-                            </div>
-                            <Button variant="ghost" size="sm" className="text-orange-600 hover:text-orange-700 hover:bg-orange-50">
-                              Read More <ArrowRight className="w-4 h-4 ml-1" />
-                            </Button>
+                            {post?.date && (
+                                <div className="flex items-center text-gray-500 text-sm">
+                                  <Calendar className="w-4 h-4 mr-1" />
+                                  <span>{new Date(post.date).toLocaleDateString('en-US', {
+                                    year: 'numeric',
+                                    month: 'short',
+                                    day: 'numeric'
+                                  })}</span>
+                                </div>
+                            )}
+                            {post?.slug ? (
+                                <Link href={`/blog/${post.slug}`}>
+                                  <Button variant="ghost" size="sm" className="text-orange-600 hover:text-orange-700 hover:bg-orange-50">
+                                    Read More <ArrowRight className="w-4 h-4 ml-1" />
+                                  </Button>
+                                </Link>
+                            ) : (
+                                <Button variant="ghost" size="sm" className="text-orange-600 hover:text-orange-700 hover:bg-orange-50" disabled>
+                                  Read More <ArrowRight className="w-4 h-4 ml-1" />
+                                </Button>
+                            )}
                           </div>
                         </CardContent>
                       </Card>
@@ -241,11 +257,26 @@ export default function Blog() {
               </div>
               
               {/* Load More */}
-              <div className="text-center">
-                <Button variant="outline" size="lg" className="border-orange-200 text-orange-600 hover:bg-orange-50">
-                  Load More Articles
-                </Button>
-              </div>
+              {hasMorePosts && (
+                <div className="text-center">
+                  <Button 
+                    variant="outline" 
+                    size="lg" 
+                    className="border-orange-200 text-orange-600 hover:bg-orange-50"
+                    onClick={loadMore}
+                    disabled={loading}
+                  >
+                    {loading ? 'Loading...' : 'Load More Articles'}
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </div>
+              )}
+              
+              {!hasMorePosts && allOtherPosts.length > 6 && (
+                <div className="text-center text-gray-500">
+                  <p>All articles loaded</p>
+                </div>
+              )}
             </div>
           </div>
           
@@ -275,5 +306,42 @@ export default function Blog() {
         </div>
       </Layout>
   );
+}
+
+export async function getServerSideProps() {
+  try {
+    // Try different endpoints to find blog content
+    let resp;
+    try {
+      // Try blogs endpoint first with working populate pattern
+      resp = await axios.get(`${strapiBasePath}/blogs?populate=*`, strapiConfig);
+    } catch (error) {
+      try {
+        // Try posts endpoint with working populate pattern
+        resp = await axios.get(`${strapiBasePath}/posts?populate=*`, strapiConfig);
+      } catch (error2) {
+        try {
+          // Try articles endpoint with working populate pattern
+          resp = await axios.get(`${strapiBasePath}/articles?populate=*`, strapiConfig);
+        } catch (error3) {
+          // Fall back to webpages with working populate pattern
+          resp = await axios.get(`${strapiBasePath}/webpages?populate=*`, strapiConfig);
+        }
+      }
+    }
+    
+    return {
+      props: {
+        blogs: resp.data,
+      },
+    };
+  } catch (error) {
+    console.error('Error fetching blogs:', error);
+    return {
+      props: {
+        blogs: [],
+      },
+    };
+  }
 }
 
