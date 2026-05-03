@@ -3,121 +3,250 @@ import { useRouter } from 'next/router';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { MapPin, Calendar, Zap, ArrowLeft } from "lucide-react";
+import { MapPin, Calendar, Zap, ArrowLeft, CheckCircle, Award, Phone, Mail, Clock, Users, Star } from "lucide-react";
 import Layout from "@/components/Layout";
-import {strapiBasePath, strapiConfig} from "@/services/ApiService";
+import {strapiBasePath, strapiConfig, strapiImageLoader} from "@/services/ApiService";
 import Image from 'next/image';
 import Link from 'next/link';
 import {queryObjectBuilder} from "@/lib/utils";
 import axios from "axios";
 import qs from "qs";
+import { FAQ } from "@/components/FAQ";
+import CTASection from "@/components/home/CTA";
 
 
 export default function ProjectDetail({ project }) {
 	const router = useRouter();
-	console.log('ProjectDetail',project)
+	const projectData = project?.data?.[0] || project?.[0] || project;
+	console.log('ProjectDetail', projectData)
 	if (router.isFallback) {
 		return <div>Loading...</div>;
 	}
 	
-	if (!project) {
+	if (!projectData) {
 		return <div>Project not found</div>;
 	}
-	
 	return (
 		<Layout>
-			<div className="container mx-auto px-4 py-12">
-				<Button variant="ghost" className="mb-6" onClick={() => router.back()}>
-					<ArrowLeft className="mr-2 h-4 w-4" /> Back to Projects
-				</Button>
-				
-				<div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-					<div className="space-y-6">
-						<h1 className="text-4xl font-bold">{project.title}</h1>
-						<p className="text-lg text-gray-600 dark:text-gray-300">
-							{project.description}
-						</p>
-						
-						<div className="flex flex-wrap gap-2">
-							{project.categories?.map((category) => (
-								<Badge key={category.id} variant="outline">
-									{category.name}
-								</Badge>
-							))}
+			<div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+				{/* Hero Section with Main Image */}
+				<div className="relative h-96 md:h-[500px] overflow-hidden">
+					{projectData.image?.[0]?.url && (
+						<Image
+							src={projectData.image[0].url}
+							alt={projectData.title}
+							fill
+							className="object-cover"
+							loader={strapiImageLoader}
+							priority
+						/>
+					)}
+					<div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent" />
+					<div className="absolute inset-0 flex items-center justify-center">
+						<div className="text-center text-white px-6">
+							<Link href={'/projects'} className="inline-flex items-center text-white/80 hover:text-white mb-6 transition-colors">
+								<ArrowLeft className="mr-2 h-4 w-4" /> <span>Back to Projects</span>
+							</Link>
+							<h1 className="text-4xl md:text-6xl font-bold mb-4">{projectData.title}</h1>
+							<p className="text-xl text-white/90 max-w-3xl mx-auto">
+								{projectData.description?.[0]?.children?.[0]?.text || projectData.description || 'Professional solar energy solutions for your needs'}
+							</p>
 						</div>
-						
-						<div className="grid grid-cols-2 gap-4 pt-4">
-							<div className="flex items-center space-x-2">
-								<MapPin className="h-5 w-5 text-primary" />
-								<span>{project.location}</span>
-							</div>
-							<div className="flex items-center space-x-2">
-								<Calendar className="h-5 w-5 text-primary" />
-								<span>{project.completionDate}</span>
-							</div>
-							{project.capacity && (
-								<div className="flex items-center space-x-2">
-									<Zap className="h-5 w-5 text-primary" />
-									<span>{project.capacity} kW</span>
-								</div>
-							)}
-						</div>
-						
-						{project.features && (
-							<div className="pt-4">
-								<h3 className="text-xl font-semibold mb-3">Key Features</h3>
-								<ul className="list-disc pl-5 space-y-2">
-									{project.features.map((feature, index) => (
-										<li key={index}>{feature}</li>
-									))}
-								</ul>
-							</div>
-						)}
-					</div>
-					
-					<div className="relative h-96 lg:h-auto">
-						{project.images?.[0]?.url && (
-							<Image
-								src={`${process.env.NEXT_PUBLIC_STRAPI_BASE_URL}${project.images[0].url}`}
-								alt={project.title}
-								fill
-								className="rounded-lg object-cover"
-								priority
-							/>
-						)}
 					</div>
 				</div>
-				
-				{project.content && (
-					<Card className="mb-12">
-						<CardHeader>
-							<CardTitle>Project Details</CardTitle>
-						</CardHeader>
-						<CardContent>
-							<div
-								className="prose dark:prose-invert max-w-none"
-								dangerouslySetInnerHTML={{ __html: project.content }}
-							/>
-						</CardContent>
-					</Card>
-				)}
-				
-				{project.gallery?.length > 0 && (
-					<div className="mb-12">
-						<h2 className="text-2xl font-bold mb-6">Gallery</h2>
-						<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-							{project.gallery.map((image, index) => (
-								<div key={index} className="relative h-64 rounded-lg overflow-hidden">
-									<Image
-										src={`${process.env.NEXT_PUBLIC_STRAPI_BASE_URL}${image.url}`}
-										alt={`${project.title} - ${index + 1}`}
-										fill
-										className="object-cover hover:scale-105 transition-transform duration-300"
-									/>
-								</div>
-							))}
+
+				{/* Project Details Content */}
+				<div className="container mx-auto px-4 py-16">
+					<div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+						{/* Main Content */}
+						<div className="lg:col-span-2 space-y-8">
+							{/* Project Overview */}
+							<Card>
+								<CardHeader>
+									<CardTitle className="text-2xl">Project Overview</CardTitle>
+								</CardHeader>
+								<CardContent>
+									<div className="prose prose-lg max-w-none">
+										{projectData.content ? (
+											<div dangerouslySetInnerHTML={{ __html: projectData.content }} />
+										) : (
+											<p className="text-gray-600">
+												This project showcases our commitment to excellence in solar energy solutions. 
+												From initial consultation to final installation, we ensure quality and efficiency at every step.
+											</p>
+										)}
+									</div>
+								</CardContent>
+							</Card>
+
+							{/* Project Information */}
+							<Card>
+								<CardHeader>
+									<CardTitle className="text-2xl">Project Information</CardTitle>
+								</CardHeader>
+								<CardContent>
+									<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+										{projectData.info?.date && (
+											<div className="flex items-center space-x-3">
+												<Calendar className="h-5 w-5 text-green-500" />
+												<div>
+													<p className="font-medium">Project Date</p>
+													<p className="text-gray-600 text-sm">{projectData.info.date}</p>
+												</div>
+											</div>
+										)}
+										{projectData.info?.author && (
+											<div className="flex items-center space-x-3">
+												<Users className="h-5 w-5 text-blue-500" />
+												<div>
+													<p className="font-medium">Project By</p>
+													<p className="text-gray-600 text-sm">{projectData.info.author}</p>
+												</div>
+											</div>
+										)}
+										{projectData.info?.customer && (
+											<div className="flex items-center space-x-3">
+												<Star className="h-5 w-5 text-yellow-500" />
+												<div>
+													<p className="font-medium">Customer</p>
+													<p className="text-gray-600 text-sm">{projectData.info.customer}</p>
+												</div>
+											</div>
+										)}
+										{projectData.info?.category && (
+											<div className="flex items-center space-x-3">
+												<Zap className="h-5 w-5 text-orange-500" />
+												<div>
+													<p className="font-medium">Category</p>
+													<p className="text-gray-600 text-sm">{projectData.info.category}</p>
+												</div>
+											</div>
+										)}
+										{projectData.category && (
+											<div className="md:col-span-2">
+												<p className="font-medium mb-2">Service Category</p>
+												<Badge variant="outline">{projectData.category.name}</Badge>
+											</div>
+										)}
+									</div>
+								</CardContent>
+							</Card>
+
+							{/* Key Features */}
+							{projectData.features && projectData.features.length > 0 && (
+								<Card>
+									<CardHeader>
+										<CardTitle className="text-2xl">Key Features</CardTitle>
+									</CardHeader>
+									<CardContent>
+										<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+											{projectData.features.map((feature, index) => (
+												<div key={index} className="flex items-start space-x-3">
+													<CheckCircle className="h-6 w-6 text-green-600 mt-1 flex-shrink-0" />
+													<div>
+														<p className="font-medium">{feature}</p>
+													</div>
+												</div>
+											))}
+										</div>
+									</CardContent>
+								</Card>
+							)}
+
+							{/* Gallery */}
+							{projectData.image && projectData.image.length > 1 && (
+								<Card>
+									<CardHeader>
+										<CardTitle className="text-2xl">Project Gallery</CardTitle>
+									</CardHeader>
+									<CardContent>
+										<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+											{projectData.image.slice(1, 5).map((image, index) => (
+												<div key={index} className="relative aspect-video rounded-lg overflow-hidden">
+													<Image
+														src={image.url}
+														alt={`${projectData.title} - Gallery ${index + 2}`}
+														fill
+														className="object-cover hover:scale-105 transition-transform duration-300"
+														loader={strapiImageLoader}
+													/>
+												</div>
+											))}
+										</div>
+									</CardContent>
+								</Card>
+							)}
+
+							{/* FAQ Section */}
+							{projectData.faq && projectData.faq.items && projectData.faq.items.length > 0 && (
+								<FAQ data={projectData.faq} />
+							)}
+						</div>
+
+						{/* Sidebar */}
+						<div className="space-y-6">
+							{/* Quick Info Card */}
+							<Card className="sticky top-6 z-10">
+								<CardHeader>
+									<CardTitle className="text-xl">Project Info</CardTitle>
+								</CardHeader>
+								<CardContent className="space-y-4">
+									<div className="flex items-center space-x-3">
+										<Zap className="h-5 w-5 text-yellow-500" />
+										<div>
+											<p className="font-medium">Project Type</p>
+											<p className="text-gray-600 text-sm">Solar Installation</p>
+										</div>
+									</div>
+									{projectData.info?.category && (
+										<div className="flex items-center space-x-3">
+											<Zap className="h-5 w-5 text-yellow-500" />
+											<div>
+												<p className="font-medium">System Type</p>
+												<p className="text-gray-600 text-sm">{projectData.info.category}</p>
+											</div>
+										</div>
+									)}
+									<div className="flex items-center space-x-3">
+										<Users className="h-5 w-5 text-green-500" />
+										<div>
+											<p className="font-medium">Team Size</p>
+											<p className="text-gray-600 text-sm">4-6 experts</p>
+										</div>
+									</div>
+								</CardContent>
+							</Card>
+
+							{/* CTA Card */}
+							<Card className="bg-gradient-to-br from-amber-600 to-amber-700 text-white">
+								<CardHeader>
+									<CardTitle className="text-xl">Get Started Today</CardTitle>
+									<CardDescription className="text-amber-100">
+										Ready for your solar project?
+									</CardDescription>
+								</CardHeader>
+								<CardContent className="space-y-4">
+									<Button size="lg" className="w-full bg-white text-amber-600 hover:bg-amber-50" asChild>
+										<a href="tel:+923018207730">
+											<Phone className="mr-2 h-4 w-4" />
+											Call Now
+										</a>
+									</Button>
+									<Button size="lg" variant="outline" className="w-full border-white hover:bg-white text-amber-600" asChild>
+										<a href="mailto:info.sustainablesolar@gmail.com">
+											<Mail className="mr-2 h-4 w-4" />
+											Email Us
+										</a>
+									</Button>
+								</CardContent>
+							</Card>
 						</div>
 					</div>
+				</div>
+
+				{/* Bottom CTA Section */}
+				{projectData.cta && (
+					<CTASection data={projectData.cta} />
 				)}
 			</div>
 		</Layout>
@@ -129,28 +258,9 @@ export default function ProjectDetail({ project }) {
 
 export async function getServerSideProps({ params }) {
 	try {
-		const queryObject = queryObjectBuilder("projects", {
-			filters: {
-				slug: {
-					$eq: params.slug
-				}
-			},
-			populate: {
-				images: '*',
-				gallery: '*',
-				categories: '*'
-			}
-		});
-		
 		const { data: resp } = await axios.get(
-			`${strapiBasePath}/webpages`,
-			{
-				...strapiConfig,
-				params: queryObject,
-				paramsSerializer: {
-					serialize: (params) => qs.stringify(params, { encodeValuesOnly: true }),
-				},
-			}
+			`${strapiBasePath}/projects?filters[slug][$eq]=${params.slug}&populate=image&populate=faq.items&populate=cta.button&populate=meta_info&populate=info`,
+			strapiConfig
 		);
 		
 		const pageEntry = resp?.data?.[0] ?? null;
