@@ -42,7 +42,7 @@ export default function ImageOverlayCards({ services }) {
 							<div className="text-right">
 								<Link
 									className="mt-2 text-gray-100 border-b border-gray-600"
-									href={'/services-details/'+service.slug ?? '#'}
+									href={service.slug ? `/service-details/${service.slug}` : '#'}
 								>
 									Lean More
 								</Link>
