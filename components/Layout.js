@@ -12,7 +12,7 @@ export default function Layout({ children, currentPageName }) {
   const router = useRouter();
 
   const navigationItems = [
-    { name: "Home", url: createPageUrl("home") },
+    { name: "Home", url: createPageUrl("/") },
     { name: "Services", url: createPageUrl("services") },
     { name: "Projects", url: createPageUrl("projects") },
     { name: "Blog", url: createPageUrl("blog") },
