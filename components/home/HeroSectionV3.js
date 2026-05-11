@@ -61,7 +61,9 @@ export default function HeroSectionV3({banner}) {
 								onClick={() => handleNav("#contact")}
 								className="group solar-gradient px-7 py-4 rounded-2xl text-white font-bold text-lg shadow-2xl shadow-orange-500/30 hover:shadow-orange-500/50 hover:opacity-95 transition-all duration-300 flex items-center justify-center gap-3"
 							>
-								Get Free Solar Quote
+								<a href="/contact">
+									Get Free Solar Quote
+								</a>
 								<ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
 							</button>
 							<button

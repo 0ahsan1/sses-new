@@ -223,7 +223,10 @@ const projects = projectSection.projects;
             Get a custom solar solution designed specifically for your property
           </p>
           <Button size="lg" className="bg-white text-orange-600 hover:bg-gray-100">
-            Start Your Solar Journey
+           
+            <a href="/contact">
+              Start Your Solar Journey
+            </a>
           </Button>
         </div>
       </div>
