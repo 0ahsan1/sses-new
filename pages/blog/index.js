@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Calendar, Clock, User, ArrowRight } from "lucide-react";
+import {Calendar, Clock, User, ArrowRight, ArrowDown} from "lucide-react";
 import Layout from "@/components/Layout";
 import {strapiBasePath, strapiConfig, strapiImageLoader} from "@/services/ApiService";
 import Image from 'next/image';
@@ -23,7 +23,7 @@ export default function Blog({ blogs }) {
   // Get other posts (exclude featured post)
   const allOtherPosts = blogsData.filter(blog => blog !== featuredPost);
   const otherPosts = allOtherPosts.slice(0, visiblePosts);
-  
+  console.log('featuredPost',featuredPost)
   // Load more function
   const loadMore = () => {
     setLoading(true);
@@ -91,9 +91,9 @@ export default function Blog({ blogs }) {
               <Card className="mb-16 overflow-hidden shadow-xl border-0">
                 <div className="grid lg:grid-cols-2 gap-0">
                   <div className="aspect-[4/3] lg:aspect-auto relative">
-                    {featuredPost?.image?.url ? (
+                    {featuredPost?.image[0]?.url ? (
                         <Image
-                            src={featuredPost.image.url}
+                            src={featuredPost.image[0].url}
                             alt={featuredPost.title}
                             fill
                             className="w-full h-full object-cover"
@@ -176,9 +176,9 @@ export default function Blog({ blogs }) {
                   {otherPosts.map((post, index) => (
                       <Card key={post?.id || index} className="overflow-hidden hover:shadow-xl transition-shadow duration-300 border-0 shadow-lg">
                         <div className="aspect-[4/3] relative overflow-hidden">
-                          {post?.image?.url ? (
+                          {post?.image[0]?.url ? (
                               <Image
-                                  src={post.image.url}
+                                  src={post.image[0].url}
                                   alt={post.title}
                                   fill
                                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
@@ -267,7 +267,7 @@ export default function Blog({ blogs }) {
                     disabled={loading}
                   >
                     {loading ? 'Loading...' : 'Load More Articles'}
-                    <ArrowRight className="w-4 h-4 ml-2" />
+                    <ArrowDown className="w-4 h-4 ml-2" />
                   </Button>
                 </div>
               )}

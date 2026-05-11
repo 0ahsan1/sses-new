@@ -1,0 +1,199 @@
+$flaticon_mycollection-font: "flaticon_mycollection";
+
+@font-face {
+    font-family: $flaticon_mycollection-font;
+    src: url("../../public/fonts/flaticon_mycollection.ttf?0be5b41e743d0106dbccd2359d943d87") format("truetype"),
+    url("../../public/fonts/flaticon_mycollection.woff?0be5b41e743d0106dbccd2359d943d87") format("woff"),
+    url("../../public/fonts/flaticon_mycollection.woff2?0be5b41e743d0106dbccd2359d943d87") format("woff2"),
+    url("../../public/fonts/flaticon_mycollection.eot?0be5b41e743d0106dbccd2359d943d87#iefix") format("embedded-opentype"),
+    url("../../public/fonts/flaticon_mycollection.svg?0be5b41e743d0106dbccd2359d943d87#flaticon_mycollection") format("svg");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap; // or "optional"
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon_mycollection !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$flaticon_mycollection-map: (
+    "play-button": "\f101",
+    "star-half-empty": "\f102",
+    "reddit-logo": "\f103",
+    "play-store": "\f104",
+    "pinterest": "\f105",
+    "whatsapp": "\f106",
+    "smartphone": "\f107",
+    "diamond": "\f108",
+    "refresh": "\f109",
+    "translation": "\f10a",
+    "view": "\f10b",
+    "apple": "\f10c",
+    "support": "\f10d",
+    "cloud": "\f10e",
+    "cloud-computing": "\f10f",
+    "facebook": "\f110",
+    "youtube": "\f111",
+    "user": "\f112",
+    "user-1": "\f113",
+    "trophy": "\f114",
+    "edit": "\f115",
+    "linkedin": "\f116",
+    "instagram": "\f117",
+    "refresh-1": "\f118",
+    "star": "\f119",
+    "star-1": "\f11a",
+    "task": "\f11b",
+    "tumblr": "\f11c",
+    "fingerprint": "\f11d",
+    "verified": "\f11e",
+    "layers": "\f11f",
+    "calendar": "\f120",
+    "tik-tok": "\f121",
+    "bank": "\f122",
+    "time-tracking": "\f123",
+    "cloud-storage": "\f124",
+    "credit-card": "\f125",
+    "check-mark": "\f126",
+    "twitter": "\f127",
+    "planning": "\f128",
+    "completed-task": "\f129",
+    "third-party": "\f12a",
+    "secure": "\f12b",
+);
+
+.flaticon-play-button:before {
+    content: map-get($flaticon_mycollection-map, "play-button");
+}
+.flaticon-star-half-empty:before {
+    content: map-get($flaticon_mycollection-map, "star-half-empty");
+}
+.flaticon-reddit-logo:before {
+    content: map-get($flaticon_mycollection-map, "reddit-logo");
+}
+.flaticon-play-store:before {
+    content: map-get($flaticon_mycollection-map, "play-store");
+}
+.flaticon-pinterest:before {
+    content: map-get($flaticon_mycollection-map, "pinterest");
+}
+.flaticon-whatsapp:before {
+    content: map-get($flaticon_mycollection-map, "whatsapp");
+}
+.flaticon-smartphone:before {
+    content: map-get($flaticon_mycollection-map, "smartphone");
+}
+.flaticon-diamond:before {
+    content: map-get($flaticon_mycollection-map, "diamond");
+}
+.flaticon-refresh:before {
+    content: map-get($flaticon_mycollection-map, "refresh");
+}
+.flaticon-translation:before {
+    content: map-get($flaticon_mycollection-map, "translation");
+}
+.flaticon-view:before {
+    content: map-get($flaticon_mycollection-map, "view");
+}
+.flaticon-apple:before {
+    content: map-get($flaticon_mycollection-map, "apple");
+}
+.flaticon-support:before {
+    content: map-get($flaticon_mycollection-map, "support");
+}
+.flaticon-cloud:before {
+    content: map-get($flaticon_mycollection-map, "cloud");
+}
+.flaticon-cloud-computing:before {
+    content: map-get($flaticon_mycollection-map, "cloud-computing");
+}
+.flaticon-facebook:before {
+    content: map-get($flaticon_mycollection-map, "facebook");
+}
+.flaticon-youtube:before {
+    content: map-get($flaticon_mycollection-map, "youtube");
+}
+.flaticon-user:before {
+    content: map-get($flaticon_mycollection-map, "user");
+}
+.flaticon-user-1:before {
+    content: map-get($flaticon_mycollection-map, "user-1");
+}
+.flaticon-trophy:before {
+    content: map-get($flaticon_mycollection-map, "trophy");
+}
+.flaticon-edit:before {
+    content: map-get($flaticon_mycollection-map, "edit");
+}
+.flaticon-linkedin:before {
+    content: map-get($flaticon_mycollection-map, "linkedin");
+}
+.flaticon-instagram:before {
+    content: map-get($flaticon_mycollection-map, "instagram");
+}
+.flaticon-refresh-1:before {
+    content: map-get($flaticon_mycollection-map, "refresh-1");
+}
+.flaticon-star:before {
+    content: map-get($flaticon_mycollection-map, "star");
+}
+.flaticon-star-1:before {
+    content: map-get($flaticon_mycollection-map, "star-1");
+}
+.flaticon-task:before {
+    content: map-get($flaticon_mycollection-map, "task");
+}
+.flaticon-tumblr:before {
+    content: map-get($flaticon_mycollection-map, "tumblr");
+}
+.flaticon-fingerprint:before {
+    content: map-get($flaticon_mycollection-map, "fingerprint");
+}
+.flaticon-verified:before {
+    content: map-get($flaticon_mycollection-map, "verified");
+}
+.flaticon-layers:before {
+    content: map-get($flaticon_mycollection-map, "layers");
+}
+.flaticon-calendar:before {
+    content: map-get($flaticon_mycollection-map, "calendar");
+}
+.flaticon-tik-tok:before {
+    content: map-get($flaticon_mycollection-map, "tik-tok");
+}
+.flaticon-bank:before {
+    content: map-get($flaticon_mycollection-map, "bank");
+}
+.flaticon-time-tracking:before {
+    content: map-get($flaticon_mycollection-map, "time-tracking");
+}
+.flaticon-cloud-storage:before {
+    content: map-get($flaticon_mycollection-map, "cloud-storage");
+}
+.flaticon-credit-card:before {
+    content: map-get($flaticon_mycollection-map, "credit-card");
+}
+.flaticon-check-mark:before {
+    content: map-get($flaticon_mycollection-map, "check-mark");
+}
+.flaticon-twitter:before {
+    content: map-get($flaticon_mycollection-map, "twitter");
+}
+.flaticon-planning:before {
+    content: map-get($flaticon_mycollection-map, "planning");
+}
+.flaticon-completed-task:before {
+    content: map-get($flaticon_mycollection-map, "completed-task");
+}
+.flaticon-third-party:before {
+    content: map-get($flaticon_mycollection-map, "third-party");
+}
+.flaticon-secure:before {
+    content: map-get($flaticon_mycollection-map, "secure");
+}

@@ -1,0 +1,1456 @@
+@import "./variable.module.scss";
+@import "./common-style.css";
+
+// three cards design css start region
+.blogs {
+  .raw-html-embed {
+	.cardSections {
+	  display: flex;
+	  justify-content: space-between;
+	  
+	  .cardRed {
+		padding: 35px;
+		flex: 50%;
+		background-color: $cardRed;
+		color: white;
+		border-left: 5px solid $cardBorders;
+		border-bottom: 5px solid $cardBorders;
+		margin: 10px;
+		
+		p {
+		  color: $text-white;
+		}
+	  }
+	  
+	  h3 {
+		margin-bottom: 0.5rem;
+	  }
+	  
+	  .cardPurple {
+		padding: 35px;
+		flex: 50%;
+		background-color: $cardPurple;
+		color: white;
+		border-left: 5px solid $cardBorders;
+		border-bottom: 5px solid $cardBorders;
+		margin: 10px;
+		
+		p {
+		  color: $text-white;
+		}
+	  }
+	  
+	  .cardGreen {
+		padding: 35px;
+		flex: 50%;
+		background-color: $cardGreen;
+		color: white;
+		border-left: 5px solid $cardBorders;
+		border-bottom: 5px solid $cardBorders;
+		margin: 10px;
+		
+		p {
+		  color: $text-white;
+		}
+	  }
+	}
+  }
+  
+  // three cards design css end region
+  
+  // Links css start region
+  
+  .listLinks li a {
+	color: $text-primary;
+	
+	&:hover {
+	  text-decoration: underline;
+	}
+  }
+  
+  .listLinks li {
+	display: flex;
+	align-items: center;
+	
+	&::before {
+	  content: "•";
+	  margin-right: 7px;
+	  font-size: 30px;
+	}
+  }
+  
+  // Links css start region
+  
+  @media (max-width: 800px) {
+	.cardSections {
+	  display: flex;
+	  flex-wrap: wrap;
+	}
+  }
+  
+  // li{
+  // &::before{
+  //     content: "•";
+  //     margin-right: 7px;
+  //     font-size: 30px;
+  // }
+  // }
+  
+  //*********************************************************blogs-pages**************************************************************************
+  .blogsPageBanner {
+	.image_resized {
+	  margin: auto;
+	  max-width: 100%;
+	  max-height: 100%;
+	}
+  }
+  
+  //**********************************************************blogs-pages**************************************************************************
+  .blogContentPage {
+	li {
+	  &::before {
+		content: "•";
+		margin-right: 7px;
+		font-size: 30px;
+	  }
+	}
+	
+	a {
+	  color: $text-primary;
+	  
+	  &:hover {
+		text-decoration: underline;
+	  }
+	}
+  }
+  
+  .listDecimalLinks {
+	list-style-type: decimal;
+	margin-left: 42px;
+	
+	li {
+	  color: $text-primary;
+	  
+	  &::marker {
+		color: $text-brown-secondary !important;
+	  }
+	  
+	  &:hover {
+		text-decoration: underline;
+	  }
+	  
+	  &::before {
+		display: none;
+	  }
+	}
+  }
+  
+  .blog-description {
+	font-style: italic;
+	
+	p {
+	  font-size: $fs-18;
+	  font-weight: bold;
+	  
+	  .linksPara {
+		color: $text-primary;
+	  }
+	}
+  }
+  
+  p {
+	a {
+	  color: $text-primary;
+	  
+	  &:hover {
+		text-decoration: underline;
+	  }
+	}
+  }
+  
+  .table {
+	display: block !important;
+  }
+  
+  .postBlogBannerDesign {
+	ol {
+	  li {
+		color: $text-brown-secondary;
+		font-size: $fs-18;
+		line-height: 26px;
+		
+		&::before {
+		  list-style-type: decimal !important;
+		}
+	  }
+	}
+  }
+  
+  // styles for pagination css start region
+  .activePage {
+	background-color: $text-primary !important;
+	color: $text-white !important;
+  }
+  
+  // styles for pagination css start region
+  
+  // privacy policy page css start region
+  .privacyPolicyContent {
+	.raw-html-embed {
+	  margin-top: 0px;
+	  display: flex;
+	  
+	  //   justify-content: center;
+	  .editor-alignment-center {
+		display: block;
+		width: 100%;
+		min-width: 100%;
+		max-width: 100%;
+		margin: 0px auto 35px;
+		text-align: center;
+	  }
+	  
+	  .cmn-orange-btn {
+		color: $text-white;
+		padding: 16px 66px;
+		font-size: $fs-22;
+		margin: 30px 0px;
+		line-height: 22px;
+		
+		&:hover {
+		  text-decoration: none;
+		  color: $text-primary;
+		}
+	  }
+	  
+	  p {
+		// text-align: center;
+	  }
+	  
+	  ol {
+		list-style-type: decimal;
+		padding-left: 44px;
+		color: $text-primary;
+		font-size: $fs-20;
+		
+		li {
+		  h4 {
+			border-left: 0px;
+		  }
+		  
+		  p {
+			padding-left: 17px;
+		  }
+		}
+	  }
+	  
+	  .linkHeadings {
+		.linkTitle {
+		  margin-bottom: 40px;
+		}
+	  }
+	}
+  }
+  
+  @media (max-width: 576px) {
+	.contactMtfxGroup {
+	  .custom-card {
+		min-height: 241px !important;
+		max-width: 100% !important;
+	  }
+	}
+	
+	.regulatoryPageSection {
+	  .container {
+		padding-left: 0rem !important;
+		padding-right: 0rem !important;
+	  }
+	}
+  }
+  
+  // privacy policy page css end region
+  
+  // safe harbour policy page css
+  
+  .safeHarbourPolicy {
+	.security-content {
+	  margin-bottom: 50px;
+	  
+	  p {
+		margin-bottom: 20px;
+	  }
+	}
+  }
+  
+  // regulatory information css start region
+  .blogsContent {
+	p {
+	  color: $text-brown-primary;
+	  font-size: $fs-18;
+	  line-height: 30px;
+	  text-align: justify;
+	  margin-bottom: 20px;
+	  
+	  a {
+		color: $text-primary;
+		
+		&:hover {
+		  text-decoration: underline;
+		}
+	  }
+	}
+	
+	h4 {
+	  font-size: $fs-20;
+	  line-height: 46px;
+	  color: $text-brown-primary;
+	  text-align: center;
+	  margin: 50px 0px 20px;
+	  font-weight: bold;
+	  text-align: left;
+	  padding-left: 15px;
+	  border-left: 2px solid $text-primary;
+	  display: flex;
+	  align-items: center;
+	  height: 23px;
+	}
+	
+	ul {
+	  list-style: none;
+	  color: $text-brown-primary;
+	  font-size: $fs-18;
+	  line-height: 30px;
+	  text-align: justify;
+	  margin-bottom: 20px;
+	  
+	  li {
+		position: relative;
+		margin-bottom: 10px;
+		padding-left: 41px;
+		
+		&::before {
+		  content: "➜";
+		  position: absolute;
+		  color: $text-primary;
+		  margin-left: -23px;
+		  font-size: $fs-12;
+		}
+	  }
+	}
+  }
+  
+  // regulatory information css end region
+  
+  // fx-monthly css start region
+  .fxMonthlyPage {
+	.tableDetails {
+	  table {
+		tbody {
+		  tr {
+			td {
+			  &:nth-child(2) {
+				text-align: left;
+				border-bottom: 1px solid $tableBorder;
+				border-right: 1px solid $tableBorder;
+			  }
+			  
+			  a {
+				color: $text-hyperlink-color;
+				
+				&:hover {
+				  color: $text-dark-hyperlink;
+				  text-decoration: underline;
+				}
+			  }
+			}
+		  }
+		}
+		
+		margin-bottom: 1rem;
+	  }
+	}
+	
+	div {
+	  i {
+		font-size: $fs-18;
+	  }
+	  
+	  a {
+		color: $text-hyperlink-color;
+		font-size: $fs-18;
+		
+		&:hover {
+		  color: $text-dark-hyperlink;
+		  text-decoration: underline;
+		}
+	  }
+	}
+  }
+  
+  // fx-monthly css end region
+  
+  .fxForecastBlog {
+	figure {
+	  
+	  // scroll bars css start region
+	  &::-webkit-scrollbar {
+		height: 5px;
+	  }
+	  
+	  /* Track */
+	  &::-webkit-scrollbar-track {
+		background: #f1f1f1;
+	  }
+	  
+	  /* Handle */
+	  &::-webkit-scrollbar-thumb {
+		background: $custom-scroll-gray;
+	  }
+	  
+	  /* Handle on hover */
+	  &::-webkit-scrollbar-thumb:hover {
+		background: #555;
+	  }
+	  
+	  // scroll bar css end region
+	}
+  }
+  
+  // Media queries start region
+  @media (max-width: 767px) {
+	.fxMonthlyPage {
+	  .tableDetails {
+		table {
+		  tbody {
+			tr {
+			  td {
+				font-size: $fs-18 !important;
+			  }
+			}
+		  }
+		}
+	  }
+	}
+	
+	.privacyPolicyContent {
+	  .raw-html-embed {
+		margin-top: 0px;
+		display: flex;
+		
+		.editor-alignment-center {
+		  display: block;
+		  width: 100%;
+		  min-width: 100%;
+		  max-width: 100%;
+		  margin: 0px;
+		  text-align: center;
+		}
+		
+		.cmn-orange-btn {
+		  color: $text-white;
+		  padding: 13px 63px !important;
+		  font-size: $fs-22 !important;
+		  margin: 0px !important;
+		  line-height: 22px;
+		}
+	  }
+	}
+  }
+  
+  // media queries end region
+  
+  // cookie policy page css start region
+  
+  @media (max-width: 991px) {
+	.cookieContentPage {
+	  padding-top: 30px;
+	  padding-bottom: 30px;
+	}
+  }
+  
+  // cookie policy page css end region
+  .fxWeeklyPage {
+	div {
+	  i {
+		font-size: $fs-18;
+	  }
+	  
+	  a {
+		color: $text-hyperlink-color;
+		font-size: $fs-18;
+		
+		&:hover {
+		  color: $text-dark-hyperlink;
+		  text-decoration: underline;
+		}
+	  }
+	}
+  }
+  
+  .fxDailyPage {
+	div {
+	  i {
+		font-size: $fs-18;
+	  }
+	  
+	  a {
+		color: $text-hyperlink-color;
+		font-size: $fs-18;
+		
+		&:hover {
+		  color: $text-dark-hyperlink;
+		  text-decoration: underline;
+		}
+	  }
+	}
+	
+	div {
+	  li a {
+		color: white;
+		font-size: $fs-20;
+		
+		&:hover {
+		  text-decoration: none;
+		  color: white
+		}
+	  }
+	}
+  }
+  
+  // ***********************************************Partner with us page ******************************************************
+  .partnerWithUs {
+	.cmn-section-title {
+	  margin: 0px 0px 20px;
+	}
+  }
+  
+  @media (min-width: 300px) and (max-width: 375px) {
+	.partnerWithUs {
+	  .input-text-box {
+		min-width: 290px !important;
+	  }
+	}
+  }
+  
+  // **********************************************Partner with us page *******************************************************
+  
+  //************************************************fx-monthly css start region************************************
+  
+  @media (max-width: 767px) {
+	.fx-montlyPage {
+	  .fxMonthlyPage {
+		div {
+		  p {
+			&:nth-child(2) {
+			  img {
+				display: none;
+			  }
+			}
+		  }
+		}
+	  }
+	}
+  }
+  
+  @media (max-width: 575px) {
+	.fx-montlyPage {
+	  .container {
+		padding-left: 0rem !important;
+		padding-right: 0rem !important;
+	  }
+	}
+  }
+  
+  @media (max-width: 374px) {
+	.fx-montlyPage {
+	  .fxMonthlyPage {
+		.raw-html-embed {
+		  .table {
+			overflow-x: scroll;
+			
+			&::-webkit-scrollbar {
+			  height: 5px;
+			}
+			
+			table {
+			  margin-bottom: 10px;
+			}
+		  }
+		}
+	  }
+	}
+  }
+  
+  //*****************************************************fx-monthly css end region*********************************
+  
+  // **********************************************regulatory information page*************************************
+  .regulatoryPageSection {
+	.blogsContent {
+	  h4 {
+		height: auto;
+		line-height: initial;
+	  }
+	}
+  }
+  
+  // **********************************************regulatory information page*************************************
+  
+  // Blogs section start region css
+  
+  // red green and purle cards start region
+  
+  .paymentCardsRed {
+	.cardFlin {
+	  background-color: $cardRed;
+	  color: $text-white;
+	  padding: 35px;
+	  border-left: 5px solid $cardBorders;
+	  border-bottom: 5px solid $cardBorders;
+	  margin: 10px;
+	  min-height: 233px;
+	  
+	  h3 {
+		margin: 0px 0px 8px;
+		font-size: $fs-23;
+		line-height: 26px;
+	  }
+	  
+	  p {
+		font-size: $fs-18;
+		margin: 0px 0px 16px;
+		color: $text-white;
+	  }
+	}
+  }
+  
+  .paymentCardsPurle {
+	.cardFlin {
+	  background-color: $cardPurple;
+	  color: $text-white;
+	  padding: 35px;
+	  border-left: 5px solid $cardBorders;
+	  border-bottom: 5px solid $cardBorders;
+	  margin: 10px;
+	  min-height: 233px;
+	  
+	  h3 {
+		margin: 0px 0px 8px;
+		font-size: $fs-23;
+		line-height: 26px;
+	  }
+	  
+	  p {
+		font-size: $fs-18;
+		margin: 0px 0px 16px;
+		color: $text-white;
+	  }
+	}
+  }
+  
+  .paymentCardsGreen {
+	.cardFlin {
+	  background-color: $cardGreen;
+	  color: $text-white;
+	  padding: 35px;
+	  border-left: 5px solid $cardBorders;
+	  border-bottom: 5px solid $cardBorders;
+	  margin: 10px;
+	  min-height: 233px;
+	  
+	  h3 {
+		margin: 0px 0px 8px;
+		font-size: $fs-23;
+		line-height: 26px;
+	  }
+	  
+	  p {
+		font-size: $fs-18;
+		margin: 0px 0px 16px;
+		color: $text-white;
+	  }
+	}
+  }
+  
+  // red green and purle cards end region
+  
+  @media (max-width: 800px) {
+	.gridCols {
+	  grid-template-columns: repeat(1, minmax(0, 1fr));
+	}
+	
+	.paymentCardsRed {
+	  .cardFlin {
+		min-height: auto;
+	  }
+	}
+	
+	.paymentCardsPurle {
+	  .cardFlin {
+		min-height: auto;
+	  }
+	}
+	
+	.paymentCardsGreen {
+	  .cardFlin {
+		min-height: auto;
+	  }
+	}
+  }
+  
+  @media (min-width: 801px) and (max-width: 991px) {
+	.paymentCardsRed {
+	  .cardFlin {
+		min-height: 453px;
+	  }
+	}
+	
+	.paymentCardsPurle {
+	  .cardFlin {
+		min-height: 453px;
+	  }
+	}
+	
+	.paymentCardsGreen {
+	  .cardFlin {
+		min-height: 453px;
+	  }
+	}
+  }
+  
+  @media (min-width: 992px) and (max-width: 1199px) {
+	.paymentCardsRed {
+	  .cardFlin {
+		min-height: 323px;
+	  }
+	}
+	
+	.paymentCardsPurle {
+	  .cardFlin {
+		min-height: 323px;
+	  }
+	}
+	
+	.paymentCardsGreen {
+	  .cardFlin {
+		min-height: 323px;
+	  }
+	}
+  }
+  
+  // dotted cards css start region
+  
+  .linep {
+	// background-image: url("../public/Images/bac-blog-3.jpg");
+	background-color: $bg-white;
+	padding: 2% 12% 2% 8%;
+	border: 2px dotted $text-primary;
+	border-radius: 25px;
+	max-width: 920px;
+	margin: 0px auto;
+	box-shadow: $bg-dotted-card-shadow 6px 6px 14px;
+	
+	h3 {
+	  font-size: $fs-23;
+	  line-height: 26px;
+	}
+	
+	p {
+	  color: $text-brown-secondary;
+	  font-size: $fs-18;
+	  line-height: 26px;
+	}
+  }
+  
+  // dotted cards css end region
+  
+  // gray cards css start region
+  .flexContainermy {
+	display: flex;
+	flex-direction: row;
+	
+	.flexItemFour {
+	  padding: 35px;
+	  flex: 0 0 50%;
+	  background-color: $bg-blog-card;
+	  color: black;
+	  margin: 10px;
+	  border: 1px solid $border-orange;
+	  box-shadow: 6px 6px 13px $blog-card-box-shadow;
+	  
+	  p {
+		color: $text-black;
+		font-size: $fs-18;
+		line-height: 26px;
+	  }
+	}
+	
+	.flexItemFive {
+	  padding: 35px;
+	  flex: 0 0 50%;
+	  background-color: $bg-blog-card;
+	  color: black;
+	  margin: 10px;
+	  border: 1px solid $border-orange;
+	  box-shadow: 6px 6px 13px $blog-card-box-shadow;
+	  
+	  p {
+		color: $text-black;
+		font-size: $fs-18;
+		line-height: 26px;
+	  }
+	}
+  }
+  
+  .lastCard {
+	.flexContainermy {
+	  display: block;
+	  
+	  p {
+		color: $text-black;
+		font-size: $fs-18;
+		line-height: 26px;
+	  }
+	}
+  }
+  
+  @media (max-width: 800px) {
+	.flexContainermy {
+	  display: block;
+	}
+  }
+  
+  // gray cards css end region
+  
+  // orange dotted cards
+  .linep {
+	h3 {
+	  margin-bottom: 8px;
+	}
+	
+	.linepbtn {
+	  p {
+		margin-block-end: 0rem;
+	  }
+	  
+	  a {
+		text-decoration: none;
+		
+		em {
+		  color: $text-brown-secondary;
+		  
+		  span {
+			color: $text-primary;
+			
+			&:hover {
+			  text-decoration: underline;
+			}
+		  }
+		}
+	  }
+	}
+  }
+  
+  /* dashed lines cards table start region */
+  .classynumber {
+	.cntitles {
+	  font-size: $fs-22;
+	  font-weight: bold;
+	  display: inline-block;
+	  height: 13px;
+	  color: $text-brown-secondary;
+	}
+	
+	p {
+	  color: $text-brown-primary;
+	  font-size: $fs-18;
+	  counter-reset: section;
+	  margin-block-end: 0rem !important;
+	  
+	  &:nth-of-type(odd) {
+		border-left: 0px;
+		border-top-right-radius: 30px;
+		border-bottom-right-radius: 30px;
+		border-top: 2px dashed $text-primary;
+		border-right: 2px dashed $text-primary;
+		border-bottom: 2px dashed $text-primary;
+		margin-left: 30px;
+		padding: 30px 45px 30px 20px;
+		position: relative;
+		
+		&:first-child {
+		  border-top: 0px;
+		  border-top-right-radius: 0px;
+		}
+		
+		&::before {
+		  counter-increment: section;
+		  content: counter(section) " ";
+		  left: 100%;
+		  margin-left: -21px;
+		  position: absolute;
+		  border-radius: 50%;
+		  padding: 5px;
+		  height: 40px;
+		  width: 40px;
+		  background-color: #f89522;
+		  text-align: center;
+		  color: white;
+		  font-size: 120%;
+		  font-weight: bold;
+		  margin-top: -7px;
+		}
+	  }
+	  
+	  &:nth-of-type(even) {
+		border-right: 0px;
+		border-top-left-radius: 30px;
+		border-bottom-left-radius: 30px;
+		border-left: 2px dashed $text-primary;
+		border-top: 0px dashed $text-primary;
+		border-bottom: 0px;
+		margin-left: 6px;
+		padding: 30px 0px 30px 50px;
+		position: relative;
+		
+		&:last-child {
+		  border-bottom: 0px;
+		  border-bottom-left-radius: 0px;
+		}
+		
+		&::before {
+		  content: counter(section);
+		  left: 100%;
+		  margin-left: -21px;
+		  position: absolute;
+		  left: 0;
+		  border-radius: 50%;
+		  padding: 5px;
+		  height: 40px;
+		  width: 40px;
+		  background-color: #f89522;
+		  text-align: center;
+		  color: white;
+		  font-size: 120%;
+		  font-weight: bold;
+		  margin-top: -7px;
+		}
+	  }
+	  
+	  span {
+		a {
+		  font-size: $fs-18;
+		  color: $text-primary;
+		  margin-block-end: 0rem !important;
+		}
+	  }
+	}
+  }
+  
+  @media (max-width: 768px) {
+	.classynumber {
+	  p {
+		&:nth-of-type(odd)::before {
+		  margin-left: -17px;
+		}
+	  }
+	}
+  }
+  
+  /* dashed lines cards table end region */
+  
+  // orange card css start region
+  
+  .cardmyb {
+	background: radial-gradient(#fbc662, #ff6c00);
+	max-width: 900px;
+	margin: 20px auto;
+	padding: 20px;
+	min-height: 200px;
+	border-radius: 10px;
+	box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+	transition: all 0.2s;
+	
+	.cardmyb__title {
+	  font-size: $fs-28;
+	  line-height: 30px;
+	  text-align: left;
+	  margin-bottom: 8px;
+	}
+	
+	.cardmyb__para {
+	  font-size: $fs-18;
+	  line-height: 26px;
+	  margin-bottom: 16px;
+	  color: $text-black;
+	}
+	
+	.cardmyb__apply {
+	  a {
+		color: $text-black;
+		font-size: $fs-18;
+	  }
+	}
+	
+	&:hover {
+	  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+	  transform: scale(1.01);
+	  transition: all 0.2s;
+	}
+  }
+  
+  // orange card css end region
+  
+  // 3 highted cards
+  
+  .newreg {
+	display: flex;
+	flex-direction: row;
+	
+	.nrcontain {
+	  padding: 35px;
+	  flex: 50%;
+	  background-color: $bg-blog-card;
+	  color: black;
+	  margin: 10px;
+	  border: 1px solid $border-orange;
+	  box-shadow: 6px 6px 13px $blog-card-box-shadow;
+	  min-height: 346px;
+	  
+	  .nrtt {
+		h3 {
+		  font-size: $fs-23;
+		  line-height: 26px;
+		  text-align: left;
+		  margin-bottom: 8px;
+		}
+		
+		p {
+		  color: $text-brown-secondary;
+		  font-size: $fs-18;
+		  line-height: 26px;
+		  margin-bottom: 16px;
+		}
+	  }
+	}
+  }
+  
+  @media (max-width: 800px) {
+	.newreg {
+	  display: block;
+	  
+	  .nrcontain {
+		min-height: auto;
+	  }
+	}
+  }
+  
+  // 3 highted cards
+  
+  // 6 cols cards css start region
+  
+  .citybasedImage {
+	div {
+	  img {
+		float: left;
+		padding: 0px 20px 20px 0px;
+		width: 100%;
+		height: auto;
+	  }
+	}
+	
+	h3 {
+	  font-size: $fs-23;
+	  line-height: 26px;
+	  text-align: left;
+	  color: $text-brown-primary;
+	}
+	
+	p {
+	  color: $text-brown-secondary;
+	  font-size: $fs-18;
+	  line-height: 26px;
+	}
+	
+	.blogContent {
+	  padding-top: 40px;
+	}
+  }
+  
+  @media (max-width: 991px) {
+	.citybasedImage {
+	  div {
+		img {
+		  padding: 0px 0px 20px 0px;
+		}
+	  }
+	  
+	  &:nth-last-of-type(even) {
+		.blogDiv {
+		  .md\:grid-cols-2 {
+			grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+		  }
+		  
+		  .grid {
+			grid-template-columns: repeat(1, minmax(0, 1fr));
+		  }
+		}
+		
+		.imageCard {
+		  grid-row: 1;
+		}
+	  }
+	  
+	  .blogContent {
+		padding-top: 0px;
+		padding-bottom: 10px;
+	  }
+	  
+	  .grid {
+		grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+	  }
+	}
+  }
+  
+  // 6 cols cards css start region
+  
+  // post/international-money-transfers-from-canada-mtfx/ - page
+  
+  .blogContentPage {
+	.raw-html-embed {
+	  .flexContainermy {
+		
+		.flexItemFour,
+		.flexItemFive {
+		  .flin {
+			p {
+			  strong {
+				font-size: $fs-23;
+				line-height: 26px;
+				text-align: left;
+				color: $text-black;
+			  }
+			}
+		  }
+		}
+	  }
+	  
+	  .lastCard {
+		.flexContainermy {
+		  .flexItemFive {
+			.flin {
+			  p {
+				strong {
+				  display: flex;
+				  justify-content: center;
+				}
+			  }
+			  
+			  .flex-container {
+				display: flex;
+				justify-content: center;
+				
+				.content-flex {
+				  p {
+					font-size: $fs-25;
+					margin: 0px 0px 16px;
+					width: auto;
+				  }
+				}
+			  }
+			}
+		  }
+		}
+	  }
+	}
+  }
+  
+  @media (max-width: 768px) {
+	.blogContentPage {
+	  .lastCard {
+		.flexContainermy {
+		  .flexItemFive {
+			.flin {
+			  .flex-container {
+				flex-direction: column;
+			  }
+			}
+		  }
+		}
+	  }
+	}
+  }
+  
+  // post/international-money-transfers-from-canada-mtfx/ - page
+  
+  
+  // blogs section end region css
+  
+  //================= Imported styling from global fonts scss from UAT
+  .editor-content-fonts {
+	font-size: 20px;
+	font-weight: normal;
+	
+	p {
+	  font-size: 18px;
+	  font-weight: normal;
+	  line-height: 26px;
+	  margin-top: 15px;
+	  margin-bottom: 15px;
+	}
+	
+	h1 {
+	  font-size: 36px;
+	  line-height: 2.2rem;
+	  margin-top: 1rem;
+	  margin-bottom: 1rem;
+	}
+	
+	h2 {
+	  font-size: 33px;
+	  // font-weight: $global-Font-Weight;
+	  line-height: 2rem;
+	  // color: $global-Font-Color-Grey;
+	  margin-top: 2.5rem;
+	  margin-bottom: 1rem;
+	}
+	
+	h3 {
+	  font-size: 24px;
+	  line-height: 1.5rem;
+	  margin-top: 1.5rem;
+	}
+	
+	h4 {
+	  font-size: 20px;
+	  margin-top: 1.5rem;
+	}
+	
+	h5 {
+	  font-size: 16px;
+	  font-weight: bold;
+	}
+	
+	h6 {
+	  font-size: 14px;
+	  font-weight: bold;
+	}
+	
+	h7 {
+	  font-size: 12px;
+	  font-weight: bold;
+	}
+	
+	h8 {
+	  font-size: 10px;
+	  font-weight: bold;
+	}
+	
+	h9 {
+	  font-size: 8px;
+	  font-weight: bold;
+	}
+	
+	h10 {
+	  font-size: 6px;
+	  font-weight: bold;
+	}
+	
+	li {
+	  font-size: 18px;
+	}
+	
+	&.mb-30px {
+	  p {
+		margin: 0;
+		margin-bottom: 30px;
+	  }
+	}
+	
+	&.text-truncate {
+	  overflow: hidden;
+	  text-overflow: ellipsis;
+	  display: -webkit-box;
+	  -webkit-line-clamp: 5;
+	  -webkit-box-orient: vertical;
+	}
+	
+	.send-money-link {
+	  &:hover {
+		color: $text-primary;
+	  }
+	}
+  }
+  
+  .editor-content-fonts-blogs {
+	h2 {
+	  margin-top: 2.5rem;
+	  margin-bottom: 1rem;
+	}
+	
+	h2,
+	h3,
+	h4 {
+	  font-weight: bold;
+	}
+  }
+  
+  @media (max-width: 500px) {
+	.editor-content-fonts {
+	  li {
+		font-size: 17px;
+	  }
+	}
+	
+	.editor-content-fonts-blogs {
+	  p {
+		font-size: 17px;
+	  }
+	  li {
+		font-size: 17px;
+	  }
+	}
+  }
+  
+  .mtfx-button {
+	color: $text-brown-primary;
+	font-size: 15px;
+	text-align: center;
+	min-width: 110px;
+	line-height: 12px;
+	background: $bg-primary;
+	border: 1px solid $text-primary;
+	border-radius: 35px;
+	padding: 10px 10px;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+	font-weight: 700;
+	
+	&.btn-large {
+	  padding: 10px 56px;
+	  font-size: $fs-22;
+	  line-height: 22px;
+	}
+	
+	&:hover {
+	  background-color: $bg-white;
+	  border: 1px solid $text-primary;
+	  color: $text-primary;
+	}
+	
+	&.btn-secondary {
+	  background-color: $text-brown-primary;
+	  border: 1px solid $text-brown-primary;
+	  color: $bg-white;
+	}
+  }
+  
+  .mtfx-link-button {
+	font-size: $fs-15;
+	font-weight: 700;
+	min-width: 50px;
+	color: $text-brown-primary;
+	
+	&:hover {
+	  color: $text-primary;
+	}
+  }
+  
+  .global-font-color {
+	color: $text-brown-primary !important;
+	
+	&:hover {
+	  color: $text-primary !important;
+	}
+  }
+  
+  .global-font-color-secondary {
+	color: $text-brown-primary !important;
+	
+	&:hover {
+	  color: $bg-white !important;
+	  background-color: $text-brown-primary !important;
+	}
+  }
+}
+
+.styled-input {
+  outline: 1px solid $input-border-default;
+  animation: 2s ease-in;
+  border: 0px;
+  box-shadow: none;
+  
+  &:hover {
+	outline: 2.5px solid $input-border-hover;
+  }
+  
+  &:focus-visible {
+	outline: 3.5px solid $input-border-focus-visible;
+  }
+  
+  &:focus {
+	outline-offset: 0px;
+  }
+  
+  &.active {
+	&:hover {
+	  outline: 2.5px solid $input-border-hover;
+	}
+  }
+}
+
+.activePage {
+  background-color: $text-primary !important;
+  color: $text-white !important;
+}
+
+.header-styled-bullets {
+  text-align: left;
+  
+  li {
+	display: flex;
+	align-items: center;
+	
+	span {
+	  &::before {
+		content: "\2713";
+		color: $bg-white !important;
+		background-image: linear-gradient(#f89522, #ff5a00);
+		border-radius: 50%;
+		font-size: 12px;
+		padding: 4px 6.5px;
+		margin-right: 8px;
+	  }
+	}
+	
+	p {
+	  font-size: 14px;
+	  margin-top: 13px;
+	  margin-bottom: 13px;
+	  line-height: 14px;
+	}
+  }
+  
+  &.bullets-secondary {
+	li {
+	  span {
+		&::before {
+		  color: $text-brown-primary;
+		}
+	  }
+	}
+  }
+  
+  &.bullets-black {
+	li {
+	  span {
+		&::before {
+		  content: "\2713";
+		  color: $bg-white !important;
+		  background-image: linear-gradient($bg-black, $bg-black);
+		}
+	  }
+	}
+  }
+}

@@ -10,6 +10,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import axios from "axios";
 import CTASection from "@/components/home/CTA";
+import styles from "./style.module.scss";
 
 export default function BlogDetail({ blog }) {
 	const router = useRouter();
@@ -28,23 +29,14 @@ export default function BlogDetail({ blog }) {
 			<div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
 				{/* Hero Section with Blog Image */}
 				<div className="relative h-96 md:h-[500px] overflow-hidden">
-					{blogData.image?.url && (
-						<Image
-							src={blogData.image.url}
-							alt={blogData.title}
-							fill
-							className="object-cover"
-							loader={strapiImageLoader}
-							priority
-						/>
-					)}
-					<div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent" />
+					
+					<div className="absolute inset-0 bg-gray-900" />
 					<div className="absolute inset-0 flex items-center justify-center">
 						<div className="text-center text-white px-6">
 							<Link href={'/blog'} className="inline-flex items-center text-white/80 hover:text-white mb-6 transition-colors">
 								<ArrowLeft className="mr-2 h-4 w-4" /> <span>Back to Blog</span>
 							</Link>
-							<h1 className="text-4xl md:text-6xl font-bold mb-4">{blogData.title}</h1>
+							<h1 className="text-4xl md:text-5xl font-bold mb-4 max-w-7xl mx-auto">{blogData.title}</h1>
 							<p className="text-xl text-white/90 max-w-3xl mx-auto">
 								{blogData.description?.[0]?.children?.[0]?.text || blogData.excerpt || 'Insights and updates from the solar energy industry'}
 							</p>
@@ -53,7 +45,7 @@ export default function BlogDetail({ blog }) {
 				</div>
 
 				{/* Blog Content */}
-				<div className="container mx-auto px-4 py-16">
+				<div className="container mx-auto px-4 py-16 blogs">
 					<div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 						{/* Main Content */}
 						<div className="lg:col-span-2 space-y-8">
@@ -99,8 +91,22 @@ export default function BlogDetail({ blog }) {
 
 							{/* Blog Content */}
 							<Card>
+								<div>
+									{blogData.image[0]?.url && (
+										<Image
+											src={blogData.image[0].url}
+											alt={blogData.title}
+											width={100}
+											height={100}
+											className={'w-full h-full object-cover'}
+											loader={strapiImageLoader}
+											priority
+										/>
+									)}
+								</div>
 								<CardContent className="pt-6">
-									<div className="prose prose-lg max-w-none">
+									<div className={`${styles.blogContentDesign
+									} ${styles.postBlogBannerDesign} ${styles.blogContentPage} ${styles.blogsPageBanner}  editor-content-fonts-blogs`}>
 										{blogData.content ? (
 											<div dangerouslySetInnerHTML={{ __html: blogData.content }} />
 										) : (
@@ -181,7 +187,7 @@ export default function BlogDetail({ blog }) {
 							</Card>
 
 							{/* Quick Actions */}
-							<Card className="bg-gradient-to-br from-amber-600 to-amber-700 text-white">
+							<Card className="bg-gradient-to-br bg-gray-900 text-white">
 								<CardHeader>
 									<CardTitle className="text-xl">Get Solar Solution</CardTitle>
 									<CardDescription className="text-amber-100">

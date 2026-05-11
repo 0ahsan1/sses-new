@@ -13,7 +13,7 @@ import axios from "axios";
 import qs from "qs";
 import { FAQ } from "@/components/FAQ";
 import CTASection from "@/components/home/CTA";
-
+import styles from "./style.module.scss";
 
 export default function ProjectDetail({ project }) {
 	const router = useRouter();
@@ -31,23 +31,13 @@ export default function ProjectDetail({ project }) {
 			<div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
 				{/* Hero Section with Main Image */}
 				<div className="relative h-96 md:h-[500px] overflow-hidden">
-					{projectData.image?.[0]?.url && (
-						<Image
-							src={projectData.image[0].url}
-							alt={projectData.title}
-							fill
-							className="object-cover"
-							loader={strapiImageLoader}
-							priority
-						/>
-					)}
-					<div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent" />
+					<div className="absolute inset-0 bg-gray-900" />
 					<div className="absolute inset-0 flex items-center justify-center">
 						<div className="text-center text-white px-6">
 							<Link href={'/projects'} className="inline-flex items-center text-white/80 hover:text-white mb-6 transition-colors">
 								<ArrowLeft className="mr-2 h-4 w-4" /> <span>Back to Projects</span>
 							</Link>
-							<h1 className="text-4xl md:text-6xl font-bold mb-4">{projectData.title}</h1>
+							<h1 className="text-4xl md:text-5xl font-bold mb-4 max-w-7xl mx-auto">{projectData.title}</h1>
 							<p className="text-xl text-white/90 max-w-3xl mx-auto">
 								{projectData.description?.[0]?.children?.[0]?.text || projectData.description || 'Professional solar energy solutions for your needs'}
 							</p>
@@ -56,17 +46,31 @@ export default function ProjectDetail({ project }) {
 				</div>
 
 				{/* Project Details Content */}
-				<div className="container mx-auto px-4 py-16">
+				<div className="container mx-auto px-4 py-16 blogs">
 					<div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 						{/* Main Content */}
 						<div className="lg:col-span-2 space-y-8">
 							{/* Project Overview */}
 							<Card>
+								<div>
+									{projectData.image[0]?.url && (
+										<Image
+											src={projectData.image[0].url}
+											alt={projectData.title}
+											width={100}
+											height={100}
+											className={'w-full h-full object-cover'}
+											loader={strapiImageLoader}
+											priority
+										/>
+									)}
+								</div>
 								<CardHeader>
 									<CardTitle className="text-2xl">Project Overview</CardTitle>
 								</CardHeader>
 								<CardContent>
-									<div className="prose prose-lg max-w-none">
+									<div className={`${styles.blogContentDesign
+									} ${styles.postBlogBannerDesign} ${styles.blogContentPage} ${styles.blogsPageBanner}  editor-content-fonts-blogs`}>
 										{projectData.content ? (
 											<div dangerouslySetInnerHTML={{ __html: projectData.content }} />
 										) : (

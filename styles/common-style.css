@@ -1,0 +1,72 @@
+@import './variable.module.scss';
+@import './font.css';
+
+
+/* common classes */
+.width-20 {
+	width: 20%;
+}
+
+.mt-18 {
+	margin-top: 18px;
+}
+
+.mt-65 {
+	margin-top: 65px;
+}
+
+
+.mt-165 {
+	margin-top: 165px;
+}
+
+
+.no-wrap {
+	white-space: nowrap;
+}
+
+.p-12px {
+	padding: 12px;
+}
+
+.mt-90 {
+	margin-top: 90px;
+}
+
+
+.mt-40 {
+	margin-top: 40px;
+}
+.mt-30{
+	margin-top: 30px;
+}
+
+
+.img-30px {
+	/* min-width: 30px;
+	min-height: 30px;
+	line-height: 26px;
+	text-align: center; */
+	width: 24.44px;
+	height: 24.27px;
+	line-height: 26px;
+	margin-right: 15px;
+	/* text-align: center; */
+}
+
+
+.center-webkit {
+	text-align: -webkit-center;
+}
+
+.cmn-section-padding {
+	padding-top: 70px;
+	padding-bottom: 70px;
+}
+
+
+.Home_container__bCOhY {
+	padding: 0px;
+}
+
+

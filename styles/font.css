@@ -1,0 +1,64 @@
+@font-face {
+	font-family: 'Circular';
+	src: url('../public/fonts/Circular/CircularStd-Medium.otf');
+}
+
+@font-face {
+	font-family: 'Circular Light';
+	src: url('../public//fonts//Circular/CircularStd-Light.otf');
+}
+
+@font-face {
+	font-family: 'Circular Book';
+	src: url('../public//fonts//Circular/CircularStd-Book.otf');
+}
+
+@font-face {
+	font-family: 'Circular Bold';
+	src: url('../public//fonts//Circular/CircularStd-Bold.otf');
+}
+
+@font-face {
+	font-family: 'Circular Black';
+	src: url('../public/fonts/Circular/CircularStd-Black.otf');
+}
+
+@font-face {
+	font-family: 'Inter Light';
+	src: url('../public//fonts/Inter/Inter_24pt-Light.ttf');
+}
+
+@font-face {
+	font-family: 'Inter Regular';
+	src: url('../public//fonts/Inter/Inter-Regular.woff');
+}
+
+@font-face {
+	font-family: 'Inter Medium';
+	src: url('../public//fonts/Inter/Inter_18pt-Medium.ttf');
+}
+
+@font-face {
+	font-family: 'Inter';
+	src: url('../public//fonts/Inter/Inter.woff2') format('woff2');
+	font-style: normal;
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Inter Bold';
+	src: url('../public//fonts/Inter/Inter-Bold.woff');
+}
+
+@font-face {
+	font-family: 'Inter Semibold';
+	src: url('../public//fonts/Inter/Inter-SemiBold.woff');
+}
+
+@font-face {
+	font-family: 'Nunito';
+	src: url('../public/fonts/Nunito-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}

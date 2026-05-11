@@ -1,0 +1,177 @@
+
+// background colors
+$bg-light-gray: #f5f6f6;
+$bg-dark-gray: #edeeed;
+$bg-dropdown-checked: #f2f2f2;
+$bg-white: #ffffff;
+$bg-black: #000000;
+$footer-bg: #393939;
+$bg-primary: #f89522;
+$bg-Ligh_gray: #f5f6f6;
+$dark_gray: #edeeed;
+$bg_tab: #f1f1f1;
+$bg_dropDownChecked: #f2f2f2;
+$dateHoverBg: #eee;
+$dropdownInputBg: #f5f6f6;
+$BG_Light_Pink: #f8d7da;
+$bg-blog-card: #f7f7f7;
+$bg-orange-card: #fbc662;
+$bg-light-orange-card: #fbc662;
+$bg-lightGray: #f5f5f5;
+
+// text-colors
+// $text-primary: #ff5a00;
+$text-primary: #fc6e0b;
+$text-black: #000000;
+$text-white: #ffffff;
+$text-brown-primary: #393939;
+$text-red: #b30021;
+$text-green: #26ab2c;
+$text-medium-light-black: #222;
+$text-hyperlink-color: #007bff;
+$text-brown-secondary: #707070;
+$text-normal-light-gray: #f8f9fa;
+$text-light-gray: #989898;
+$text-dark-hyperlink: #0056b3;
+$text-light-hyperlink: #007bff;
+$text-medium-black: #222222;
+$text-light-brown-gray: #9b9b9b;
+$text-Progress-red: #dc3545;
+$cardGreen: #02b59b;
+$cardPurple: #7b3ddb;
+$cardRed: #fd5631;
+$card-borderGray: #bfbfbf;
+$calendarBorder: #e5e5e5;
+$dropDownBorderColor: #d3d5d8;
+$text-form-error: #721c24;
+$text-error-Red: #ff0000;
+$text-search-color: #495057;
+$text-dropdown-color: #999999;
+$text-light-brown: #af650f;
+$text-primary-dark: #ea6935;
+
+// border-colors
+$custom-border-gray: #989898;
+$custom-scroll-gray: #e6e3e3;
+$border-white: #fbfbfb;
+$colum-border-color: #efefef;
+$border-card: #ddd;
+$cardBorders: #e8e8e8;
+$custCardBorder: #d2d2d2;
+$customIconGrayColor: #686868;
+$borderPink: #f5c6cb;
+$popupCloseBtn: #979898;
+$sliderBtn: #b9b9b9;
+$sliderHoverColor: #869791;
+$border-orange: orange;
+$input-border-default: #868685;
+$input-border-hover: #6c6c6b;
+$input-border-focus-visible: #163300;
+
+
+// cmn colors
+$table-colum-gray: #f5f6f6;
+$tableBckOddColor: #f0f1f2;
+$tableTextBlack: #212529;
+$tableBorder: #dee2e6;
+$text-Darkred: #be1e2d;
+$text-green: #00a651;
+$text-red: #ed1c24;
+// $text-error-Red:"red";
+$text-yellow: #f7941e;
+$text-blue: #0079c1;
+$text-black: #212529;
+$text-bright-green: #32cd32;
+
+// box shadows
+$bg-dotted-card-shadow: #d9d9d9;
+$blog-card-box-shadow: #eaeaea;
+
+// chat plugin
+// $chat-icon-bg: #FB7711 ;
+$chat-icon-bg: #fc6e0b;
+$custom-text-red: #E4240D;
+$custom-text-green: #138E02;
+
+// font-size
+$fs-6: 6px;
+$fs-9: 9px;
+$fs-10: 10px;
+$fs-11: 11px;
+$fs-12: 12px;
+$fs-13: 13px;
+$fs-14: 14px;
+$fs-15: 15px;
+$fs-16: 16px;
+$fs-17: 17px;
+$fs-18: 18px;
+$fs-19: 19px;
+$fs-20: 20px;
+$fs-21: 21px;
+$fs-22: 22px;
+$fs-23: 23px;
+$fs-24: 24px;
+$fs-25: 25px;
+$fs-26: 26px;
+$fs-27: 27px;
+$fs-28: 28px;
+$fs-29: 29px;
+$fs-30: 30px;
+$fs-31: 31px;
+$fs-32: 32px;
+$fs-33: 33px;
+$fs-34: 34px;
+$fs-35: 35px;
+$fs-36: 36px;
+$fs-37: 37px;
+$fs-38: 38px;
+$fs-39: 39px;
+$fs-40: 40px;
+$fs-46: 46px;
+$fs-48: 48px;
+$fs-49: 49px;
+$fs-50: 50px;
+
+// font Family
+
+// 2
+$cubeRound-Bold-Italic: "Ciutadella Rounded   4";
+
+// 2_1
+$cubeRound-Semibold: "Ciutadella Rounded  4";
+
+// 3
+$cubeRound-Semi-Bold-Italic: "Ciutadella Rounded   3";
+
+// 3_1
+$cubeRound-Medium: "Ciutadella Rounded  3";
+
+// 4
+$cubeRound-Italic: "Ciutadella Rounded   2";
+
+// 4_1
+$cubeRound-Bold: "Ciutadella Rounded  2";
+
+// 5
+$cubeRound-Light-Italic: "Ciutadella Rounded";
+
+// 5_1
+$cubeRound-Light: "Ciutadella Rounded";
+
+// cubeRegular
+
+$cubeRound-Regular: "Ciutadella Rounded";
+
+$arial: Arial, arial;
+$arial-regular-helvetica: Arial-Regular, Helvetica;
+$arial-bold-helvetica: Arial-Bold, Helvetica;
+$arial-helvetica-sans: Arial, Helvetica, sans-serif;
+$nunito: Nunito;
+$nunito-helvetica: Nunito, Helvetica;
+
+$from-gradient: #f89522;
+$to-gradient: #f89522;
+$global-Font-Color-Grey: #333;
+$global-Font-Family: Arial, Helvetica, sans-serif;
+$global-Font-Color-Light-Grey: lightgrey;
+$global-Font-Weight: 700;
