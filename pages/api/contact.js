@@ -15,13 +15,7 @@ export default async function handler(req, res) {
 			message: "Method not allowed",
 		});
 	}
-	console.log("SMTP ENV CHECK:", {
-		SMTP_HOST: process.env.SMTP_HOST,
-		SMTP_PORT: process.env.SMTP_PORT,
-		SMTP_SECURE: process.env.SMTP_SECURE,
-		SMTP_EMAIL: process.env.SMTP_EMAIL,
-		SMTP_PASSWORD_EXISTS: Boolean(process.env.SMTP_PASSWORD),
-	});
+	
 	try {
 		const {
 			name,
@@ -44,7 +38,8 @@ export default async function handler(req, res) {
 			!process.env.SMTP_HOST ||
 			!process.env.SMTP_PORT ||
 			!process.env.SMTP_EMAIL ||
-			!process.env.SMTP_PASSWORD
+			!process.env.SMTP_PASSWORD ||
+			!process.env.ADMIN_EMAIL
 		) {
 			return res.status(500).json({
 				success: false,
@@ -70,44 +65,58 @@ export default async function handler(req, res) {
 			},
 		});
 		
-		await transporter.verify();
-		
 		const adminEmailHtml = `
       <div style="font-family: Arial, sans-serif; line-height: 1.7; color: #222;">
         <h2 style="color: #ea580c;">New Solar Consultation Request</h2>
 
+        <p>You have received a new consultation request from the Sustainable Solar website.</p>
+
         <table cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%; max-width: 700px;">
           <tr>
-            <td style="border: 1px solid #ddd;"><strong>Name</strong></td>
+            <td style="border: 1px solid #ddd; background: #f9f9f9;"><strong>Name</strong></td>
             <td style="border: 1px solid #ddd;">${safeName}</td>
           </tr>
+
           <tr>
-            <td style="border: 1px solid #ddd;"><strong>Email</strong></td>
-            <td style="border: 1px solid #ddd;">${safeEmail}</td>
+            <td style="border: 1px solid #ddd; background: #f9f9f9;"><strong>Email</strong></td>
+            <td style="border: 1px solid #ddd;">
+              <a href="mailto:${safeEmail}">${safeEmail}</a>
+            </td>
           </tr>
+
           <tr>
-            <td style="border: 1px solid #ddd;"><strong>Phone</strong></td>
-            <td style="border: 1px solid #ddd;">${safePhone}</td>
+            <td style="border: 1px solid #ddd; background: #f9f9f9;"><strong>Phone</strong></td>
+            <td style="border: 1px solid #ddd;">
+              <a href="tel:${safePhone}">${safePhone}</a>
+            </td>
           </tr>
+
           <tr>
-            <td style="border: 1px solid #ddd;"><strong>Property Address</strong></td>
+            <td style="border: 1px solid #ddd; background: #f9f9f9;"><strong>Property Address</strong></td>
             <td style="border: 1px solid #ddd;">${safeAddress || "Not provided"}</td>
           </tr>
+
           <tr>
-            <td style="border: 1px solid #ddd;"><strong>Property Type</strong></td>
+            <td style="border: 1px solid #ddd; background: #f9f9f9;"><strong>Property Type</strong></td>
             <td style="border: 1px solid #ddd;">${safePropertyType || "Not selected"}</td>
           </tr>
+
           <tr>
-            <td style="border: 1px solid #ddd;"><strong>Monthly Electricity Bill</strong></td>
+            <td style="border: 1px solid #ddd; background: #f9f9f9;"><strong>Monthly Electricity Bill</strong></td>
             <td style="border: 1px solid #ddd;">
               ${safeMonthlyBill ? `PKR ${safeMonthlyBill}` : "Not provided"}
             </td>
           </tr>
         </table>
 
-        <h3 style="margin-top: 24px;">Message</h3>
-        <p style="background: #f8f8f8; padding: 14px; border-radius: 8px;">
+        <h3 style="margin-top: 24px;">Customer Message</h3>
+
+        <p style="background: #f8f8f8; padding: 14px; border-radius: 8px; border: 1px solid #eee;">
           ${safeMessage || "No message provided"}
+        </p>
+
+        <p style="margin-top: 24px; font-size: 13px; color: #666;">
+          This message was sent from the Sustainable Solar contact form.
         </p>
       </div>
     `;
@@ -133,18 +142,87 @@ export default async function handler(req, res) {
           </ul>
         </div>
 
-        <p>Regards,<br/><strong>Sustainable Solar Team</strong></p>
+        <h3>Your Submitted Information</h3>
+
+        <table cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%; max-width: 700px;">
+          <tr>
+            <td style="border: 1px solid #ddd; background: #f9f9f9;"><strong>Name</strong></td>
+            <td style="border: 1px solid #ddd;">${safeName}</td>
+          </tr>
+
+          <tr>
+            <td style="border: 1px solid #ddd; background: #f9f9f9;"><strong>Email</strong></td>
+            <td style="border: 1px solid #ddd;">${safeEmail}</td>
+          </tr>
+
+          <tr>
+            <td style="border: 1px solid #ddd; background: #f9f9f9;"><strong>Phone</strong></td>
+            <td style="border: 1px solid #ddd;">${safePhone}</td>
+          </tr>
+
+          <tr>
+            <td style="border: 1px solid #ddd; background: #f9f9f9;"><strong>Property Address</strong></td>
+            <td style="border: 1px solid #ddd;">${safeAddress || "Not provided"}</td>
+          </tr>
+
+          <tr>
+            <td style="border: 1px solid #ddd; background: #f9f9f9;"><strong>Property Type</strong></td>
+            <td style="border: 1px solid #ddd;">${safePropertyType || "Not selected"}</td>
+          </tr>
+
+          <tr>
+            <td style="border: 1px solid #ddd; background: #f9f9f9;"><strong>Monthly Electricity Bill</strong></td>
+            <td style="border: 1px solid #ddd;">
+              ${safeMonthlyBill ? `PKR ${safeMonthlyBill}` : "Not provided"}
+            </td>
+          </tr>
+        </table>
+
+        <p style="margin-top: 24px;">
+          Regards,<br/>
+          <strong>Sustainable Solar Team</strong>
+        </p>
       </div>
     `;
 		
+		/**
+		 * Admin email
+		 * Sends to support@sses.pk and backup to the real SMTP mailbox.
+		 * This helps if support@sses.pk is only an alias/forwarder.
+		 */
+		const adminRecipients = (process.env.ADMIN_EMAIL || "")
+			.split(",")
+			.map((email) => email.trim())
+			.filter(Boolean);
+		
+		const uniqueAdminRecipients = [...new Set(adminRecipients)];
+		
+		const adminEmailText = `
+			New Solar Consultation Request
+			
+			Name: ${name}
+			Email: ${email}
+			Phone: ${phone}
+			Property Address: ${address || "Not provided"}
+			Property Type: ${propertyType || "Not selected"}
+			Monthly Electricity Bill: ${monthlyBill ? `PKR ${monthlyBill}` : "Not provided"}
+			
+			Message:
+			${message || "No message provided"}
+			`;
+		
 		await transporter.sendMail({
-			from: `"Sustainable Solar" <${process.env.SMTP_EMAIL}>`,
-			to: "info.sustainablesolar@gmail.com",
+			from: `"Sustainable Solar Website" <${process.env.SMTP_EMAIL}>`,
+			to: uniqueAdminRecipients,
 			replyTo: email,
 			subject: `New Solar Consultation Request from ${safeName}`,
+			text: adminEmailText,
 			html: adminEmailHtml,
 		});
 		
+		/**
+		 * Customer confirmation email
+		 */
 		await transporter.sendMail({
 			from: `"Sustainable Solar" <${process.env.SMTP_EMAIL}>`,
 			to: email,

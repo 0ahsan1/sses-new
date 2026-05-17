@@ -71,7 +71,8 @@ export default function Contact() {
       
       setStatusType("error");
       setStatusMessage(
-          error.message || "Sorry, your request could not be submitted. Please try again."
+          error.message ||
+          "Sorry, your request could not be submitted. Please try again."
       );
     } finally {
       setIsSubmitting(false);
@@ -349,17 +350,8 @@ export default function Contact() {
                             disabled={isSubmitting}
                             className="w-full bg-orange-600 hover:bg-orange-700 text-lg py-4 disabled:opacity-70 disabled:cursor-not-allowed"
                         >
-                          {isSubmitting ? (
-                              <>
-                                <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                                Sending Request...
-                              </>
-                          ) : (
-                              <>
-                                <Send className="w-5 h-5 mr-2" />
-                                Send My Request
-                              </>
-                          )}
+                          <Send className="w-5 h-5 mr-2" />
+                          {isSubmitting ? "Sending Request..." : "Send My Request"}
                         </Button>
                       </form>
                     </CardContent>
