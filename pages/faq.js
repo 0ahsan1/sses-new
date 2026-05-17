@@ -33,7 +33,7 @@ export default function FAQ({data}) {
   );
 
   return (
-      <Layout>
+      <Layout metaInfo={data?.meta_info}>
         <div className="min-h-screen bg-gray-50">
           {/* Hero Section */}
           <div className="bg-gradient-to-br from-slate-900 to-blue-900 py-20">

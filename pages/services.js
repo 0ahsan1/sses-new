@@ -51,7 +51,7 @@ export default function Services({data}) {
 	console.log('Services services',data)
 	
 	return (
-		<Layout>
+		<Layout metaInfo={data?.meta_info}>
 			<div className="">
 				{/* Hero Section */}
 				<HeroSection banner={data.banner} />

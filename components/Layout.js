@@ -5,9 +5,9 @@ import { createPageUrl } from "@/lib/urls";
 import { Sun, Menu, X, Phone, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import SEO from "@/components/SEO";
 
-
-export default function Layout({ children, currentPageName }) {
+export default function Layout({ children, currentPageName, metaInfo = null }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const router = useRouter();
 
@@ -25,6 +25,7 @@ export default function Layout({ children, currentPageName }) {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO metaInfo={metaInfo} />
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 

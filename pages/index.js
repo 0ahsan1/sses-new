@@ -36,7 +36,7 @@ export default function Home({data}) {
     console.log('WhyChooseUsVariant data home',data.boardF)
     
     return (
-      <Layout>
+      <Layout metaInfo={data?.meta_info}>
         <HeroSectionV3 banner={data.banner} />
         {/*<StatsSection />*/}
           <AboutStats />

@@ -22,7 +22,7 @@ export default function About({data}) {
 	console.log('about data',data)
 	
 	return (
-		 <Layout>
+		 <Layout metaInfo={data?.meta_info}>
 			<AboutHero banner={data.banner} />
 			 <LeftContent data={data.boardA} />
 			 <RightContent data={data.boardB} />
