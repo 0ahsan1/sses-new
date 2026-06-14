@@ -446,16 +446,16 @@ export default function Contact({ data }) {
 
                 <CardContent className="p-0">
                   <div className="aspect-[16/9] overflow-hidden rounded-b-lg">
-  <iframe
-    title="SSES Head Office Location"
-src="https://maps.google.com/maps?q=Office%20%23813-B,%20Sustainable%20Solar%20Energy%20Solutions,%20Anum%20Estate%20Building,%20Shahrah-e-Faisal,%20Karachi,%20Pakistan&z=16&output=embed"    width="100%"
-    height="100%"
-    style={{ border: 0 }}
-    allowFullScreen
-    loading="lazy"
-    referrerPolicy="no-referrer-when-downgrade"
-  />
-</div>
+                <iframe
+                  title="SSES Head Office Location"
+              src="https://maps.google.com/maps?q=Office%20%23813-B,%20Sustainable%20Solar%20Energy%20Solutions,%20Anum%20Estate%20Building,%20Shahrah-e-Faisal,%20Karachi,%20Pakistan&z=16&output=embed"    width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+                  </div>
                 </CardContent>
               </Card>
             </div>
