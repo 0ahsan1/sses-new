@@ -40,7 +40,7 @@ export default function Home({data}) {
       <Layout metaInfo={data?.meta_info}>
         <HeroSectionV3 banner={data.banner} />
         {/*<StatsSection />*/}
-          <AboutStats />
+          <AboutStats data={data.boardA} />
         {/*<WhyChooseUs home6={data.boardF} />*/}
           <WhyChooseUsVariant data={data.boardF} />
           <CTASection data={data.ctaA} />

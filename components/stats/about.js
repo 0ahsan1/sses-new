@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {Rocket, Heart, Clock, Users, Sun, Server, Shield} from "lucide-react";
+import Image from "next/image";
+import { strapiImageLoader } from "@/services/ApiService";
 
 const stats = [
 	{
@@ -33,7 +35,7 @@ const stats = [
 	},
 ];
 
-export default function AboutStats() {
+export default function AboutStats({data}) {
 	return (
 		<section className="bg-white py-20 lg:py-24">
 			<div className="max-w-7xl mx-auto px-6">
@@ -54,21 +56,19 @@ export default function AboutStats() {
 							viewport={{ once: true }}
 							className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-gray-900 leading-tight"
 						>
-							We Strive To Innovative
+							{data.title}
 						</motion.h2>
 					</div>
-					<motion.p
-						initial={{ opacity: 0 }}
-						whileInView={{ opacity: 1 }}
-						viewport={{ once: true }}
+					<div
 						className="text-gray-600 leading-relaxed self-end"
+						dangerouslySetInnerHTML={{__html: data.description}}
 					>
-						Solar-powered infrastructure combined with cutting-edge server technology delivers sustainable, high-performance computing solutions for the digital future.					</motion.p>
+						</div>
 				</div>
 				
 				<div className="border-t border-gray-200 pt-12">
 					<div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-						{stats.map((stat, i) => (
+						{data.items.map((stat, i) => (
 							<motion.div
 								key={stat.label}
 								initial={{ opacity: 0, y: 20 }}
@@ -76,10 +76,10 @@ export default function AboutStats() {
 								viewport={{ once: true }}
 								transition={{ delay: i * 0.1 }}
 							>
-								<p className="text-xs text-gray-400 font-medium mb-3">/ {stat.label}</p>
+								<p className="text-xs text-gray-400 font-medium mb-3">/ {stat.title}</p>
 								<div className="flex items-center gap-3 mb-3">
-									<span className="text-4xl md:text-5xl font-bold text-gray-900">{stat.value}</span>
-									<stat.icon className={`w-6 h-6 ${stat.color}`} />
+									<span className="text-4xl md:text-5xl font-bold text-gray-900">{stat.title}</span>
+									<Image src={stat.image.url} width={20} height={20} loader={strapiImageLoader} className={`w-6 h-6 ${stat.color}`} />
 								</div>
 								<p className="text-sm text-gray-500 leading-relaxed">{stat.description}</p>
 							</motion.div>
