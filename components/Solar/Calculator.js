@@ -6,14 +6,24 @@ import InputSection from "@/components/Solar/InputSection";
 import ResultsSection from "@/components/Solar/ResultsSection";
 import useCalculator from "@/components/Solar/useCalculator";
 
-export  function SolarCalculator() {
-	const { inputs, updateInput, results, calculate, resetForm, downloadJSON } = useCalculator();
+export function SolarCalculator() {
+	const {
+		inputs,
+		updateInput,
+		results,
+		calculate,
+		resetForm,
+		downloadJSON,
+	} = useCalculator();
 	
 	return (
-		<div id={'solarCalculator'} className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50">
-			{/* Header */}
+		<div
+			id="solarCalculator"
+			className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50"
+		>
 			<div className="relative overflow-hidden">
 				<div className="absolute inset-0 bg-gradient-to-r from-teal-600 to-emerald-600 opacity-[0.03]" />
+				
 				<div className="max-w-5xl mx-auto px-4 pt-10 pb-8 text-center">
 					<motion.div
 						initial={{ opacity: 0, y: -10 }}
@@ -24,10 +34,12 @@ export  function SolarCalculator() {
 						<div className="w-10 h-10 bg-gradient-to-br from-gray-500 to-gray-500 rounded-xl flex items-center justify-center shadow-lg shadow-teal-500/20">
 							<Sun className="w-5 h-5 text-white" />
 						</div>
+						
 						<h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">
 							Solar Savings Calculator
 						</h1>
 					</motion.div>
+					
 					<motion.p
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
@@ -39,10 +51,9 @@ export  function SolarCalculator() {
 				</div>
 			</div>
 			
-			{/* Content */}
 			<div className="max-w-5xl mx-auto px-4 pb-12 space-y-6 py-6">
 				<InputSection inputs={inputs} updateInput={updateInput} />
-				{/* Actions */}
+				
 				<div className="flex flex-wrap gap-3">
 					<Button
 						onClick={calculate}
@@ -51,6 +62,7 @@ export  function SolarCalculator() {
 						<Sun className="w-4 h-4 mr-2" />
 						Calculate Savings
 					</Button>
+					
 					{results && (
 						<Button
 							variant="outline"
@@ -61,6 +73,7 @@ export  function SolarCalculator() {
 							Download Results (JSON)
 						</Button>
 					)}
+					
 					<Button
 						variant="outline"
 						onClick={resetForm}
@@ -70,22 +83,27 @@ export  function SolarCalculator() {
 						Reset Form
 					</Button>
 				</div>
+				
 				{results && <ResultsSection results={results} />}
-				{/* Assumptions */}
+				
 				<div className="bg-white/60 rounded-2xl border border-gray-100 p-5 mt-4">
-					<h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">Calculation Assumptions</h3>
+					<h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">
+						Calculation Assumptions
+					</h3>
+					
 					<div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-2 text-[11px] text-gray-400">
-						<p>Panel efficiency: 20%</p>
-						<p>System derate: 0.85</p>
-						<p>Performance ratio: 0.8</p>
-						<p>Default tariff: ₨62/kWh</p>
-						<p>Default cost: ₨150,000/kW</p>
+						<p>1 kW Solar = 1450 units/year</p>
+						<p>Electricity rate: ₨50/unit</p>
+						<p>1 kW savings: ₨72,500/year</p>
+						<p>2 kW savings: ₨145,000/year</p>
+						<p>Monthly units = yearly units ÷ 12</p>
+						<p>Monthly savings = yearly savings ÷ 12</p>
 						<p>CO₂ reduction: 0.7 kg/kWh</p>
-						<p>1 sq ft = 0.0929 sq m</p>
-						<p>Pack density: 200 W/m²</p>
 					</div>
+					
 					<p className="text-[10px] text-gray-400 mt-3">
-						*Disclaimer: These values are estimates and actual results may vary based on specific conditions.
+						*Disclaimer: These values are estimates and actual results may vary
+						based on specific conditions.
 					</p>
 				</div>
 			</div>

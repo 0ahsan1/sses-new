@@ -84,9 +84,7 @@ export default function Services({data}) {
 											</div>
 											<h3 className="text-xl font-bold text-gray-900 mb-3">{sector.title}</h3>
 											<p className="text-gray-600 mb-4">{sector.description}</p>
-											<Button variant="outline" className="w-full">
-												Learn More
-											</Button>
+											
 										</Card>
 									))}
 								</div>
