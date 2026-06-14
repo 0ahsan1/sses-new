@@ -77,14 +77,13 @@ export default function HeroSectionV3({banner}) {
 						
 						{/* Trust Badges */}
 						<div className="flex flex-wrap items-center gap-4 mb-12">
-							{[
-								{ icon: <Shield className="w-4 h-4" />, text: "25-Year Warranty" },
-								{ icon: <Award className="w-4 h-4" />, text: "Certified" },
-								{ icon: <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />, text: "4.9/5 Rating" },
-							].map((badge, i) => (
+							
+							{banner.items.map((badge, i) => (
 								<div key={i} className="flex items-center gap-2 bg-white/8 border border-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-									<span className="text-orange-400">{badge.icon}</span>
-									<span className="text-white/80 text-sm font-medium">{badge.text}</span>
+									<span className="text-orange-400">
+										<Image src={badge.image?.url} width={20} height={20} loader={strapiImageLoader} />
+									</span>
+									<span className="text-white/80 text-sm font-medium">{badge.title}</span>
 								</div>
 							))}
 						</div>

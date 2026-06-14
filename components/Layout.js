@@ -181,10 +181,10 @@ export default function Layout({ children, currentPageName, metaInfo = null }) {
             <div>
               <h4 className="text-white font-semibold mb-5 text-sm tracking-wider uppercase">Services</h4>
               <ul className="space-y-3 text-slate-400 text-sm">
-                <li><Link href={createPageUrl("Services")} className="hover:text-amber-400 transition-colors">Residential Solar</Link></li>
-                <li><Link href={createPageUrl("Services")} className="hover:text-amber-400 transition-colors">Commercial Solar</Link></li>
-                <li><Link href={createPageUrl("Services")} className="hover:text-amber-400 transition-colors">Battery Storage</Link></li>
-                <li><Link href={createPageUrl("Services")} className="hover:text-amber-400 transition-colors">Maintenance</Link></li>
+                <li><Link href={createPageUrl("services")} className="hover:text-amber-400 transition-colors">Residential Solar</Link></li>
+                <li><Link href={createPageUrl("services")} className="hover:text-amber-400 transition-colors">Commercial Solar</Link></li>
+                <li><Link href={createPageUrl("services")} className="hover:text-amber-400 transition-colors">Battery Storage</Link></li>
+                <li><Link href={createPageUrl("services")} className="hover:text-amber-400 transition-colors">Maintenance</Link></li>
               </ul>
             </div>
             
@@ -202,9 +202,6 @@ export default function Layout({ children, currentPageName, metaInfo = null }) {
           <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-slate-500 text-sm">© 2026 Sustainable Solar Energy Solutions. All rights reserved.</p>
             <div className="flex gap-6 text-slate-500 text-sm">
-              <span className="hover:text-slate-300 cursor-pointer transition-colors">Privacy</span>
-              <span className="hover:text-slate-300 cursor-pointer transition-colors">Terms</span>
-              <span className="hover:text-slate-300 cursor-pointer transition-colors">Sitemap</span>
             </div>
           </div>
         </div>
