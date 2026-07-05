@@ -16,7 +16,6 @@ export default function AboutHero({banner}) {
 	const [count, setCount] = useState(0);
 	const router = useRouter();
 	
-	console.log('about banner', banner.button[0]?.label)
 	useEffect(() => {
 		const timer = setInterval(() => {
 			setCount((prev) => (prev < 12000 ? prev + 150 : 12000));
@@ -46,8 +45,7 @@ export default function AboutHero({banner}) {
 		document.body.removeChild(link);
 	};
 	
-	return (
-		<section className="relative min-h-screen flex items-center overflow-hidden" style={{ background: "linear-gradient(135deg, #0f172a 0%, #1a2f5a 50%, #0f172a 100%)" }}>
+	return banner && <section className="relative min-h-screen flex items-center overflow-hidden" style={{ background: "linear-gradient(135deg, #0f172a 0%, #1a2f5a 50%, #0f172a 100%)" }}>
 			{/* Background Orbs */}
 			<div className="absolute top-20 -right-40 w-[600px] h-[600px] bg-orange-500/10 rounded-full blur-3xl animate-pulse-slow" />
 			<div className="absolute bottom-0 -left-40 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: "2s" }} />
@@ -147,5 +145,4 @@ export default function AboutHero({banner}) {
 				<ChevronDown className="w-5 h-5 animate-bounce" />
 			</button>
 		</section>
-	);
 }
