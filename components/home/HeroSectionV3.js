@@ -59,7 +59,7 @@ export default function HeroSectionV3({banner}) {
 						<div className="flex flex-col sm:flex-row gap-4 mb-12">
 							<button
 								onClick={() => handleNav("#contact")}
-								className="group solar-gradient px-7 py-4 rounded-2xl text-white font-bold text-lg shadow-2xl shadow-orange-500/30 hover:shadow-orange-500/50 hover:opacity-95 transition-all duration-300 flex items-center justify-center gap-3"
+								className="group solar-gradient px-4 py-4 sm:px-7 sm:py-4 rounded-2xl text-white font-bold text-sm sm:text-lg shadow-2xl shadow-orange-500/30 hover:shadow-orange-500/50 hover:opacity-95 transition-all duration-300 flex items-center justify-center gap-3"
 							>
 								<a href="/contact">
 									Get Free Solar Quote
@@ -68,7 +68,7 @@ export default function HeroSectionV3({banner}) {
 							</button>
 							<button
 								onClick={() => handleNav("#solarCalculator")}
-								className="group px-7 py-4 rounded-2xl border border-white/20 text-white font-bold text-lg hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-3 backdrop-blur-sm"
+								className="group px-4 py-4 sm:px-7 sm:py-4 rounded-2xl border border-white/20 text-white font-bold text-sm sm:text-lg hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-3 backdrop-blur-sm"
 							>
 								Calculate Savings
 								<ChevronDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
