@@ -26,7 +26,7 @@ export default function HeroSectionV3({banner}) {
 	};
 	
 	return (
-		<section className="relative min-h-screen flex items-center overflow-hidden" style={{ background: "linear-gradient(135deg, #0f172a 0%, #1a2f5a 50%, #0f172a 100%)" }}>
+		<section className="relative min-h-screen flex items-center overflow-hidden bg-gray-900">
 			{/* Background Orbs */}
 			<div className="absolute top-20 -right-40 w-[600px] h-[600px] bg-orange-500/10 rounded-full blur-3xl animate-pulse-slow" />
 			<div className="absolute bottom-0 -left-40 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: "2s" }} />

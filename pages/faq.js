@@ -36,15 +36,13 @@ export default function FAQ({data}) {
       <Layout metaInfo={data?.meta_info}>
         <div className="min-h-screen bg-gray-50">
           {/* Hero Section */}
-          <div className="bg-gradient-to-br from-slate-900 to-blue-900 py-20">
+          <div className="bg-gradient-to-br from-gray-900 to-gray-900 py-20">
             <div className="max-w-4xl mx-auto px-6 text-center">
               <HelpCircle className="w-20 h-20 text-orange-400 mx-auto mb-6" />
               <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
                 {data?.banner?.title || "Frequently Asked Questions1"}
               </h1>
-              <p className="text-xl text-gray-300 mb-8">
-                {data?.banner?.description || "Everything you need to know about solar energy in Pakistan"}
-              </p>
+              <p className="text-xl text-gray-300 mb-8" dangerouslySetInnerHTML={{ __html: data?.banner?.description || "Find answers to common questions about our solar solutions, installation process, and more." }} />
               
               {/* Search Bar */}
               <div className="relative max-w-2xl mx-auto">

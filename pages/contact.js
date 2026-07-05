@@ -121,7 +121,7 @@ export default function Contact({ data }) {
   return (
     <Layout>
       <div className="min-h-screen bg-gray-50">
-        <div className="bg-gradient-to-br from-slate-900 to-blue-900 py-20">
+        <div className="bg-gradient-to-br from-gray-900 to-gray-900 py-20">
           <div className="max-w-4xl mx-auto px-6 text-center">
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
               {data?.banner?.title || "Get In Touch"}
@@ -160,7 +160,7 @@ export default function Contact({ data }) {
             <div className="grid lg:grid-cols-3 gap-12">
               <div className="lg:col-span-2">
                 <Card className="shadow-xl border-0">
-                  <CardHeader className="bg-gradient-to-r from-orange-500 to-yellow-500 text-white rounded-3xl">
+                  <CardHeader className="bg-orange-500 text-white rounded-3xl">
                     <CardTitle className="text-2xl flex items-center p-4">
                       <Send className="w-6 h-6 mr-3" />
                       {data?.boardA?.title || "Request Free Solar Consultation"}

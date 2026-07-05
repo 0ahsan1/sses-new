@@ -22,7 +22,7 @@ export default function HeroSection({ banner }) {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 py-12">
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-900 py-12">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
@@ -33,7 +33,7 @@ export default function HeroSection({ banner }) {
           priority
         />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-transparent" />
       
       {/* Floating Elements */}
       <div className="absolute top-20 right-20 w-32 h-32 bg-orange-500/20 rounded-full blur-3xl animate-pulse" />
@@ -58,21 +58,9 @@ export default function HeroSection({ banner }) {
             dangerouslySetInnerHTML={createMarkup(description)}
           />
 
-          {/* Stats */}
-          <div className="flex flex-wrap justify-center gap-8 mb-12">
-            <div className="text-center">
-              <div className="text-sm md:text-xl font-bold text-white">2000+</div>
-              <div className="text-gray-400 text-sm">Happy Customers</div>
-            </div>
-            <div className="text-center">
-              <div className="text-sm md:text-xl font-bold text-white">50MW+</div>
-              <div className="text-gray-400 text-sm">Installed Capacity</div>
-            </div>
-            <div className="text-center">
-              <div className="text-sm md:text-xl font-bold text-white">25 Years</div>
-              <div className="text-gray-400 text-sm">Performance Warranty</div>
-            </div>
-          </div>
+        
+
+
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
@@ -98,21 +86,16 @@ export default function HeroSection({ banner }) {
             {/*</Button>*/}
           </div>
 
-          {/* Trust Indicators */}
           <div className="flex flex-wrap justify-center items-center gap-6 text-gray-400">
-            <div className="flex items-center">
-              <Shield className="w-5 h-5 mr-2 text-green-400" />
-              <span className="text-sm">25 Year Warranty</span>
+          {banner.items.map((badge, i) => (
+                        <div key={i} className="flex items-center">
+                              <span className="text-orange-400">
+                              <Image src={badge.image?.url} width={20} height={20} loader={strapiImageLoader} />
+                            </span>
+                            <span className="text-white/80 text-sm font-medium">{badge.title}</span>
+                          </div>
+                        ))}
             </div>
-            <div className="flex items-center">
-              <Award className="w-5 h-5 mr-2 text-blue-400" />
-              <span className="text-sm">ISO Certified</span>
-            </div>
-            <div className="flex items-center">
-              <Zap className="w-5 h-5 mr-2 text-orange-400" />
-              <span className="text-sm">Tier-1 Components</span>
-            </div>
-          </div>
         </div>
       </div>
 
