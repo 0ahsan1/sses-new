@@ -77,11 +77,11 @@ export default function Layout({ children, currentPageName, metaInfo = null }) {
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link href={createPageUrl("")} className="flex items-center space-x-2">
               <div className="flex items-center justify-center">
-                <Image className="w-32 h-12" src={'/logo2.png'} alt={'sses logo'} width={100} height={100} />
+                <Image className="w-20 h-15 sm:w-25 sm:h-20 " src={'/sses-logo-trans.png'} alt={'sses logo'} width={100} height={100} />
               </div>
             </Link>
 
@@ -169,7 +169,7 @@ export default function Layout({ children, currentPageName, metaInfo = null }) {
             <div className="md:col-span-2">
               <div className="flex items-center gap-3 mb-5">
               <div>
-                  <Image unoptimized={true} className={'w-30 h-10'} src={'/footer-logo.png'} alt={'sses logo'} width={20} height={20} />
+                  <Image unoptimized={true} className={'w-30 h-30'} src={'/sses-logo-trans.png'} alt={'sses logo'} width={20} height={20} />
                 </div>
               </div>
               <p className="text-slate-400 max-w-sm leading-relaxed">
